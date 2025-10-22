@@ -2,7 +2,7 @@
 title: "FigureYa228linkCor"
 params:
   author: "Xiaofan Lu"
-  reviewer: "Ying Ge"
+  reviewer: "Ying Ge, Hui Huang"
 output: html_document
 ---
 
