@@ -88,7 +88,7 @@ cat("===========================================\n")
 # 首先安装ggcor的依赖（如果有的话） / First install ggcor dependencies (if any)
 cat("\n安装ggcor的依赖包...\n")
 cat("\nInstalling ggcor dependencies...\n")
-ggcor_dependencies <- c("ggplot2", "dplyr", "tidyr", "tibble", "rlang", "tidygraph", "vegan")
+ggcor_dependencies <- c("ggplot2", "dplyr", "tidyr", "tibble", "rlang", "tidygraph", "vegan", "ade4")
 for (pkg in ggcor_dependencies) {
   install_cran_package(pkg)
 }
@@ -132,31 +132,4 @@ for (pkg in required_packages) {
     cat("✗", pkg, "installation failed\n")
     all_installed <- FALSE
   }
-}
-
-# 测试加载ggcor包 / Test loading ggcor package
-cat("\n测试ggcor包加载...\n")
-cat("\nTesting ggcor package loading...\n")
-result <- tryCatch({
-  library(ggcor)
-  cat("✓ ggcor包加载成功\n")
-  cat("✓ ggcor package loaded successfully\n")
-  cat("ggcor版本:", packageVersion("ggcor"), "\n")
-  cat("ggcor version:", packageVersion("ggcor"), "\n")
-  TRUE
-}, error = function(e) {
-  cat("✗ ggcor包加载失败:", e$message, "\n")
-  cat("✗ ggcor package loading failed:", e$message, "\n")
-  FALSE
-})
-
-cat("\n===========================================\n")
-if (all_installed && result) {
-  cat("所有包安装完成！\n")
-  cat("All packages installed successfully!\n")
-  cat("现在可以运行FigureYa228linkCor.Rmd脚本了。\n")
-  cat("You can now run the FigureYa228linkCor.Rmd script.\n")
-} else {
-  cat("部分包安装失败，请检查错误信息。\n")
-  cat("Some packages failed to install, please check the error messages.\n")
 }

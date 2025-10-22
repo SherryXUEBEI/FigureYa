@@ -10,8 +10,7 @@ output: html_document
 **Reviewer(s)**: `r params$reviewer`  
 **Date**: `r Sys.Date()`  
 
-
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -20,13 +19,13 @@ Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for 
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# 需求描述
+## 需求描述
 
-这个图10D可以实现吗？真的很漂亮，蝴蝶图
+这个图10D可以实现吗？真的很漂亮，蝴蝶图 | Can this Figure 10D be implemented? It's really beautiful, butterfly plot
 
 ![](example.png)
 
-出自<https://www.thno.org/v11p3089.htm>
+From <https://www.thno.org/v11p3089.htm>
 
 Figure 6. Roles of Siglec15 in predicting immune phenotypes in the XiangYing cohort. 
 (C) Correlations between Siglec15 and the steps of the **cancer immunity cycle**. 
@@ -38,7 +37,7 @@ Figure 6. Roles of Siglec15 in predicting immune phenotypes in the XiangYing coh
 - C和D两个热图，分别展示两类通路各自的相关分析结果，放在一起方便对比；
 - 用连线展示Siglec15跟两类通路的各个具体通路之间的相关性，实线代表正相关、虚线代表负相关，用颜色代表P value；
 
-# 应用场景
+## 应用场景 | Application Scenario
 
 展示相关性分析结果，多对多（C热图、D热图）、1对多（Siglec15跟C的连线，Siglec15跟D的连线）、两组对比（C和D画一起）画一起。
 
@@ -48,15 +47,31 @@ Figure 6. Roles of Siglec15 in predicting immune phenotypes in the XiangYing coh
 
 相关性展示的8种情况及解决方案看这里：<https://mp.weixin.qq.com/s/D9wheY5QdnOh4JrjIc8-Cg>
 
-# 环境设置 / Environment Setup
+Display correlation analysis results, many-to-many (C heatmap, D heatmap), one-to-many (Siglec15 connections with C, Siglec15 connections with D), two-group comparison (C and D plotted together).
+
+The example shows correlations between 1 gene and multiple pathways, which can be replaced with correlations between 1 gene and multiple genes, or 1 pathway and multiple genes, etc., for flexible application.
+
+If there is only one group, it's a separate C or D; if there are two groups, combine them like a butterfly as in the example; if there are more groups, apply the same easy_input* files, create multiple plots, and combine them according to your aesthetic preferences.
+
+For 8 types of correlation display situations and solutions, see here: <https://mp.weixin.qq.com/s/D9wheY5QdnOh4JrjIc8-Cg>
+
+## 环境设置 | Environment Setup
 
 ```{r}
-source("install_dependencies.R")
+source("install_dependencies.R") # 如果没有安装相关包，先运行这行代码安装依赖包 / If you haven't installed the required packages, run this line to install dependencies
 
-library(data.table)
-library(GSVA)
-library(ggplot2)
-library(ggcor)
+# 检查必要的包是否已安装
+required_packages <- c("data.table", "GSVA", "ggplot2", "ggcor")
+for (pkg in required_packages) {
+  if (!require(pkg, character.only = TRUE)) {
+    stop(paste("包", pkg, "未安装或无法加载。请先运行 install_dependencies.R"))
+  }
+}
+
+library(data.table) # 读取大数据集 / for reading large datasets
+library(GSVA) # 计算通路富集得分 / for calculating pathway enrichment scores
+library(ggplot2) # 画图 / for plotting
+library(ggcor) # 相关性图 / for correlation plots
 Sys.setenv(LANGUAGE = "en") #显示英文报错信息
 options(stringsAsFactors = FALSE) #禁止chr转成factor
 ```
@@ -88,10 +103,11 @@ gmt2list <- function(annofile){
   names(y) <- sapply(y, `[[`, 1)
   
   annoList <- lapply(y, `[`, c(-1,-2))
+  return(annoList)
 }
 ```
 
-# 输入文件的获得 / Obtaining Input Files
+## 输入文件的获得 | Obtaining Input Files
 
 If your data is already formatted as easy_input_*.txt, you can directly proceed to "Start Plotting".
 下面用基因表达矩阵和通路-基因信息，计算各通路的富集得分（可以理解为通路的表达矩阵）。
@@ -104,23 +120,40 @@ Below, using gene expression matrix and pathway-gene information, calculate the 
 - immunotherapy predicted pathways.txt，治疗签名，用于绘制(D) Correlations between Siglec15 and the enrichment scores of immunotherapy-predicted pathways。整理自例文的Table S9.xlsx，Therapeutic predicted pathways，选取Description一列为Anticancer_immunotherapy的Pathway及其对应的Genes。可以直接拿来用到自己的文章里，记得引用例文哦～～
 - immunotherapy predicted pathways.txt, therapeutic signatures, used for plotting (D) Correlations between Siglec15 and the enrichment scores of immunotherapy-predicted pathways. Organized from Table S9.xlsx of the example paper, Therapeutic predicted pathways, selecting Pathways with Description as Anticancer_immunotherapy and their corresponding Genes. Can be directly used in your own article, remember to cite the example paper~~
 
-原文：A set of **gene signatures positively correlated with the clinical response of an anti-PD-L1 agent (atezolizumab) in BLCA** were collected from Mariathasan’s study [27]. Twelve bladder cancer signatures that are specific to different molecular subtypes were collected from the study performed by the Bladder Cancer Molecular Taxonomy Group [19]. We also collected other **therapeutic signatures**, including oncogenic pathways that could shape a non-inflamed TME, targeted therapy-associated gene signatures, and gene signatures predicting radiotherapy responses (Table S9).
+"A set of **gene signatures positively correlated with the clinical response of an anti-PD-L1 agent (atezolizumab) in BLCA** were collected from Mariathasan’s study [27]. Twelve bladder cancer signatures that are specific to different molecular subtypes were collected from the study performed by the Bladder Cancer Molecular Taxonomy Group [19]. We also collected other **therapeutic signatures**, including oncogenic pathways that could shape a non-inflamed TME, targeted therapy-associated gene signatures, and gene signatures predicting radiotherapy responses (Table S9)."
 
 ```{r}
-# 读取数据
-expr <- fread("tcga_blca_fpkm.txt", sep = "\t", header = TRUE, check.names = FALSE)
-expr <- as.data.frame(expr)
-rownames(expr) <- expr[, 1]
-expr <- expr[, -1]
+# 读取数据  / Load data
+tryCatch({
+  expr <- fread("tcga_blca_fpkm.txt", sep = "\t", header = TRUE, check.names = FALSE)
+  expr <- as.data.frame(expr)
+  rownames(expr) <- expr[, 1]
+  expr <- expr[, -1]
+  
+  # 检查SIGLEC15基因是否存在
+  if (!"SIGLEC15" %in% rownames(expr)) {
+    stop("SIGLEC15 gene not found in expression matrix")
+  }
+  
+  # 提取肿瘤样本 | Extract tumor samples
+  tumsam <- colnames(expr)[substr(colnames(expr), 11, 13) == "01A"]
+  
+  if (length(tumsam) == 0) {
+    stop("No tumor samples found")
+  }
+  
+  # 取出SIGLEC15表达量  / Extract SIGLEC15 expression
+  siglec15 <- log2(expr["SIGLEC15",tumsam] + 1)
+  write.csv(siglec15, "easy_input_gene.csv")
+  
+  cat("数据加载成功，找到", length(tumsam), "个肿瘤样本\n")
+  
+}, error = function(e) {
+  cat("数据加载错误:", e$message, "\n")
+  stop(e)
+})
 
-# 提取肿瘤样本
-tumsam <- colnames(expr)[substr(colnames(expr), 11, 13) == "01A"]
-
-# 取出SIGLEC15表达量
-siglec15 <- log2(expr["SIGLEC15",tumsam] + 1)
-write.csv(siglec15, "easy_input_gene.csv")
-
-# 加载immunotherapy-predicted pathways
+# load immunotherapy-predicted pathways
 immPath <- read.table("immunotherapy predicted pathways.txt",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
 immPath.list <- list()
 for (i in rownames(immPath)) {
@@ -130,7 +163,7 @@ for (i in rownames(immPath)) {
   immPath.list[[i]] <- tmp
 }
 
-# 加载膀胱癌相关签名
+# 加载膀胱癌相关签名 / Load bladder cancer related signatures
 blcaPath <- read.table("bladder cancer signature.txt",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
 blcaPath.list <- list()
 for (i in rownames(blcaPath)) {
@@ -148,23 +181,21 @@ Calculate enrichment scores, save to files for easy reuse
 ```{r}
 # 计算immunotherapy-predicted pathways的富集得分
 # Calculate enrichment scores for immunotherapy-predicted pathways
-immPath.score <- GSVA::gsva(
-  expr = as.matrix(log2(expr[,tumsam] + 1)),
-  gset.idx.list = immPath.list,
-  method = "ssgsea",
-  verbose = FALSE  # 添加verbose参数以减少输出
+immPath.param <- GSVA::ssgseaParam(
+  as.matrix(log2(expr[,tumsam] + 1)),
+  immPath.list
 )
+immPath.score <- GSVA::gsva(immPath.param, verbose = FALSE)
 # 保存到文件，便于套用 / Save to file for easy reuse
 write.table(immPath.score, "easy_input_immPath.txt", sep = "\t", row.names = TRUE, col.names = NA, quote = FALSE)
 
 # 计算膀胱癌相关签名的富集得分
 # Calculate enrichment scores for bladder cancer related signatures
-blcaPath.score <- GSVA::gsva(
-  expr = as.matrix(log2(expr[,tumsam] + 1)),
-  gset.idx.list = blcaPath.list,
-  method = "ssgsea",
-  verbose = FALSE  # 添加verbose参数以减少输出
+blcaPath.param <- GSVA::ssgseaParam(
+  as.matrix(log2(expr[,tumsam] + 1)),
+  blcaPath.list
 )
+blcaPath.score <- GSVA::gsva(blcaPath.param, verbose = FALSE)
 # 保存到文件，便于套用 / Save to file for easy reuse
 write.table(blcaPath.score, "easy_input_blcaPath.txt", sep = "\t", row.names = TRUE, col.names = NA, quote = FALSE)
 ```
@@ -204,7 +235,7 @@ write.table(gset.score, "easy_input_gset.txt", sep = "\t", row.names = TRUE, col
 cat("Pathway enrichment scores saved to 'easy_input_gset.txt'\n")
 ```
 
-# 开始画图 / Start Plotting
+# 开始画图 ｜ Start Plotting
 
 ```{r}
 # 加载单个基因的表达量，也就是"1对多"的"1"
@@ -230,9 +261,17 @@ blcaPath.score <- rbind.data.frame(blcaPath.score,
 # 循环计算相关性并绘制左下角
 immCorSiglec15 <- NULL
 for (i in rownames(immPath.score)) {
-  cr <- cor.test(as.numeric(immPath.score[i,]),
-                 as.numeric(siglec15),
-                 method = "pearson")
+  # 确保数据是数值型
+  x_data <- as.numeric(immPath.score[i,])
+  y_data <- as.numeric(siglec15)
+  
+  # 检查数据是否有效
+  if (any(is.na(x_data)) || any(is.na(y_data))) {
+    cat("警告: 数据中包含NA值，跳过", i, "\n")
+    next
+  }
+  
+  cr <- cor.test(x_data, y_data, method = "pearson")
   immCorSiglec15 <- rbind.data.frame(immCorSiglec15,
                                      data.frame(gene = "Siglec15",
                                                 path = i,
@@ -270,9 +309,17 @@ ggsave(filename = "ggcor plot in bottom left.pdf", width = 10,height = 8)
 # 循环计算相关性并绘制右上角
 blcaCorSiglec15 <- NULL
 for (i in rownames(blcaPath.score)) {
-  cr <- cor.test(as.numeric(blcaPath.score[i,]),
-                 as.numeric(siglec15),
-                 method = "pearson")
+  # 确保数据是数值型
+  x_data <- as.numeric(blcaPath.score[i,])
+  y_data <- as.numeric(siglec15)
+  
+  # 检查数据是否有效
+  if (any(is.na(x_data)) || any(is.na(y_data))) {
+    cat("警告: 数据中包含NA值，跳过", i, "\n")
+    next
+  }
+  
+  cr <- cor.test(x_data, y_data, method = "pearson")
   blcaCorSiglec15 <- rbind.data.frame(blcaCorSiglec15,
                                      data.frame(gene = "Siglec15",
                                                 path = i,
@@ -308,13 +355,13 @@ p2
 ggsave(filename = "ggcor plot in top right.pdf", width = 10,height = 8)
 ```
 
-# 后期处理 / Post-processing
+## 后期处理 ｜ Post-processing
 
 输出的PDF文件是矢量图，可以用矢量图编辑器打开，编辑文字和图形。
 
 The output PDF files are vector graphics that can be opened with vector graphic editors to edit text and graphics.
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()
