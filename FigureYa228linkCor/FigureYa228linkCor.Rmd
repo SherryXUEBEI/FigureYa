@@ -45,15 +45,11 @@ Figure 6. Roles of Siglec15 in predicting immune phenotypes in the XiangYing coh
 
 如果只有一组，就是单独的C或D；如果有两组，就像例文一样拼成蝴蝶；如果有更多组，同样套用easy_input*文件，画出多个图后，按自己的审美组合。
 
-相关性展示的8种情况及解决方案看这里：<https://mp.weixin.qq.com/s/D9wheY5QdnOh4JrjIc8-Cg>
-
 Display correlation analysis results, many-to-many (C heatmap, D heatmap), one-to-many (Siglec15 connections with C, Siglec15 connections with D), two-group comparison (C and D plotted together).
 
 The example shows correlations between 1 gene and multiple pathways, which can be replaced with correlations between 1 gene and multiple genes, or 1 pathway and multiple genes, etc., for flexible application.
 
 If there is only one group, it's a separate C or D; if there are two groups, combine them like a butterfly as in the example; if there are more groups, apply the same easy_input* files, create multiple plots, and combine them according to your aesthetic preferences.
-
-For 8 types of correlation display situations and solutions, see here: <https://mp.weixin.qq.com/s/D9wheY5QdnOh4JrjIc8-Cg>
 
 ## 环境设置 | Environment Setup
 
@@ -238,11 +234,13 @@ cat("Pathway enrichment scores saved to 'easy_input_gset.txt'\n")
 **关于 -log10(p-value) 的使用说明 | About -log10(p-value) Usage**
 
 本图使用 -log10(p-value) 来可视化显著性水平，这是生物信息学中的标准做法。数值越大表示显著性越强：
+
 - 连线颜色基于 -log10(p-value) 进行编码
 - 图例中同时显示 p-value 范围和对应的 -log10(p-value) 范围
 - 参考：<https://mp.weixin.qq.com/s/dyaeBr8tnJhxN-fuYjE-hQ>
 
 This plot uses -log10(p-value) to visualize significance levels, which is a standard practice in bioinformatics. Higher values indicate stronger significance:
+
 - Line colors are encoded based on -log10(p-value)
 - The legend displays both p-value ranges and corresponding -log10(p-value) ranges
 - Reference: <https://mp.weixin.qq.com/s/dyaeBr8tnJhxN-fuYjE-hQ>

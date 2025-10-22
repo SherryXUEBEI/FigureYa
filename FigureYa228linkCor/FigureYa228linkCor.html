@@ -385,11 +385,9 @@ pre code {
 <p>展示相关性分析结果，多对多（C热图、D热图）、1对多（Siglec15跟C的连线，Siglec15跟D的连线）、两组对比（C和D画一起）画一起。</p>
 <p>例文是1个基因跟多个通路的相关性，可以替换为1个基因跟多个基因之间、或1个通路跟多个基因之间等等，灵活套用。</p>
 <p>如果只有一组，就是单独的C或D；如果有两组，就像例文一样拼成蝴蝶；如果有更多组，同样套用easy_input*文件，画出多个图后，按自己的审美组合。</p>
-<p>相关性展示的8种情况及解决方案看这里：<a href="https://mp.weixin.qq.com/s/D9wheY5QdnOh4JrjIc8-Cg" class="uri">https://mp.weixin.qq.com/s/D9wheY5QdnOh4JrjIc8-Cg</a></p>
 <p>Display correlation analysis results, many-to-many (C heatmap, D heatmap), one-to-many (Siglec15 connections with C, Siglec15 connections with D), two-group comparison (C and D plotted together).</p>
 <p>The example shows correlations between 1 gene and multiple pathways, which can be replaced with correlations between 1 gene and multiple genes, or 1 pathway and multiple genes, etc., for flexible application.</p>
 <p>If there is only one group, it’s a separate C or D; if there are two groups, combine them like a butterfly as in the example; if there are more groups, apply the same easy_input* files, create multiple plots, and combine them according to your aesthetic preferences.</p>
-<p>For 8 types of correlation display situations and solutions, see here: <a href="https://mp.weixin.qq.com/s/D9wheY5QdnOh4JrjIc8-Cg" class="uri">https://mp.weixin.qq.com/s/D9wheY5QdnOh4JrjIc8-Cg</a></p>
 </div>
 <div id="环境设置-environment-setup" class="section level2">
 <h2>环境设置 | Environment Setup</h2>
@@ -627,8 +625,18 @@ cat(&quot;Pathway enrichment scores saved to &#39;easy_input_gset.txt&#39;\n&quo
 <div id="开始画图-start-plotting" class="section level2">
 <h2>开始画图 ｜ Start Plotting</h2>
 <p><strong>关于 -log10(p-value) 的使用说明 | About -log10(p-value) Usage</strong></p>
-<p>本图使用 -log10(p-value) 来可视化显著性水平，这是生物信息学中的标准做法。数值越大表示显著性越强： - 连线颜色基于 -log10(p-value) 进行编码 - 图例中同时显示 p-value 范围和对应的 -log10(p-value) 范围 - 参考：<a href="https://mp.weixin.qq.com/s/dyaeBr8tnJhxN-fuYjE-hQ" class="uri">https://mp.weixin.qq.com/s/dyaeBr8tnJhxN-fuYjE-hQ</a></p>
-<p>This plot uses -log10(p-value) to visualize significance levels, which is a standard practice in bioinformatics. Higher values indicate stronger significance: - Line colors are encoded based on -log10(p-value) - The legend displays both p-value ranges and corresponding -log10(p-value) ranges - Reference: <a href="https://mp.weixin.qq.com/s/dyaeBr8tnJhxN-fuYjE-hQ" class="uri">https://mp.weixin.qq.com/s/dyaeBr8tnJhxN-fuYjE-hQ</a></p>
+<p>本图使用 -log10(p-value) 来可视化显著性水平，这是生物信息学中的标准做法。数值越大表示显著性越强：</p>
+<ul>
+<li>连线颜色基于 -log10(p-value) 进行编码</li>
+<li>图例中同时显示 p-value 范围和对应的 -log10(p-value) 范围</li>
+<li>参考：<a href="https://mp.weixin.qq.com/s/dyaeBr8tnJhxN-fuYjE-hQ" class="uri">https://mp.weixin.qq.com/s/dyaeBr8tnJhxN-fuYjE-hQ</a></li>
+</ul>
+<p>This plot uses -log10(p-value) to visualize significance levels, which is a standard practice in bioinformatics. Higher values indicate stronger significance:</p>
+<ul>
+<li>Line colors are encoded based on -log10(p-value)</li>
+<li>The legend displays both p-value ranges and corresponding -log10(p-value) ranges</li>
+<li>Reference: <a href="https://mp.weixin.qq.com/s/dyaeBr8tnJhxN-fuYjE-hQ" class="uri">https://mp.weixin.qq.com/s/dyaeBr8tnJhxN-fuYjE-hQ</a></li>
+</ul>
 <pre class="r"><code># 加载单个基因的表达量，也就是&quot;1对多&quot;的&quot;1&quot;
 # Load expression of a single gene, which is the &quot;1&quot; in &quot;1-to-many&quot;
 siglec15 &lt;- read.csv(&quot;easy_input_gene.csv&quot;, row.names = 1, check.names = F)
