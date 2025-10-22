@@ -58,20 +58,11 @@ For 8 types of correlation display situations and solutions, see here: <https://
 ## 环境设置 | Environment Setup
 
 ```{r}
-source("install_dependencies.R") # 如果没有安装相关包，先运行这行代码安装依赖包 / If you haven't installed the required packages, run this line to install dependencies
-
-# 检查必要的包是否已安装
-required_packages <- c("data.table", "GSVA", "ggplot2", "ggcor")
-for (pkg in required_packages) {
-  if (!require(pkg, character.only = TRUE)) {
-    stop(paste("包", pkg, "未安装或无法加载。请先运行 install_dependencies.R"))
-  }
-}
-
-library(data.table) # 读取大数据集 / for reading large datasets
-library(GSVA) # 计算通路富集得分 / for calculating pathway enrichment scores
-library(ggplot2) # 画图 / for plotting
-library(ggcor) # 相关性图 / for correlation plots
+source("install_dependencies.R") # 如果没有安装相关包，先运行这行代码安装依赖包 | If you haven't installed the required packages, run this line to install dependencies
+library(data.table) # 读取大数据集 | for reading large datasets
+library(GSVA) # 计算通路富集得分 | for calculating pathway enrichment scores
+library(ggplot2) # 画图 | for plotting
+library(ggcor) # 相关性图 | for correlation plots by Yuhui Li
 Sys.setenv(LANGUAGE = "en") #显示英文报错信息
 options(stringsAsFactors = FALSE) #禁止chr转成factor
 ```
@@ -109,28 +100,35 @@ gmt2list <- function(annofile){
 
 ## 输入文件的获得 | Obtaining Input Files
 
-If your data is already formatted as easy_input_*.txt, you can directly proceed to "Start Plotting".
+如果你的数据已经整理为`easy_input_*.txt`的格式，就可以直接进入“开始画图”。
+
 下面用基因表达矩阵和通路-基因信息，计算各通路的富集得分（可以理解为通路的表达矩阵）。
+
+- tcga_blca_fpkm.txt，基因表达矩阵。
+- 通路的基因信息，例文根据文献整理了两类通路，其他通路套用这样的格式即可：
+  - bladder cancer signature.txt，膀胱癌相关签名，每行一个通路，第一列为通路名（Signature），第二列为基因（Genes）。用于绘制(C) Correlations between Siglec15 and the steps of the cancer immunity cycle。出自例文的Table S9.xlsx，Bladder cancer signatures，取Signature和Genes两列。是例文作者从这篇文章整理出来的：Mariathasan S, Turley SJ, Nickles D, Castiglioni A, Yuen K, Wang Y, et al. TGFβ attenuates tumour response to PD-L1 blockade by contributing to exclusion of T cells. Nature. 2018; 554: 544-8.
+  - immunotherapy predicted pathways.txt，治疗签名，用于绘制(D) Correlations between Siglec15 and the enrichment scores of immunotherapy-predicted pathways。整理自例文的Table S9.xlsx，Therapeutic predicted pathways，选取Description一列为Anticancer_immunotherapy的Pathway及其对应的Genes。可以直接拿来用到自己的文章里，记得引用例文哦～～
+
+If your data is already formatted as easy_input_*.txt, you can directly proceed to "Start Plotting".
+
 Below, using gene expression matrix and pathway-gene information, calculate the enrichment scores for each pathway (can be understood as pathway expression matrix).
 
-- tcga_blca_fpkm.txt，基因表达矩阵 / gene expression matrix
-- 通路的基因信息，例文根据文献整理了两类通路，其他通路套用这样的格式即可：
-- Pathway gene information, the example paper organized two types of pathways based on literature, other pathways can follow this format:
-- bladder cancer signature.txt，膀胱癌相关签名，每行一个通路，第一列为通路名（Signature），第二列为基因（Genes）。用于绘制(C) Correlations between Siglec15 and the steps of the cancer immunity cycle。出自例文的Table S9.xlsx，Bladder cancer signatures，取Signature和Genes两列。是例文作者从这篇文章整理出来的：Mariathasan S, Turley SJ, Nickles D, Castiglioni A, Yuen K, Wang Y, et al. TGFβ attenuates tumour response to PD-L1 blockade by contributing to exclusion of T cells. Nature. 2018; 554: 544-8.
-- immunotherapy predicted pathways.txt，治疗签名，用于绘制(D) Correlations between Siglec15 and the enrichment scores of immunotherapy-predicted pathways。整理自例文的Table S9.xlsx，Therapeutic predicted pathways，选取Description一列为Anticancer_immunotherapy的Pathway及其对应的Genes。可以直接拿来用到自己的文章里，记得引用例文哦～～
-- immunotherapy predicted pathways.txt, therapeutic signatures, used for plotting (D) Correlations between Siglec15 and the enrichment scores of immunotherapy-predicted pathways. Organized from Table S9.xlsx of the example paper, Therapeutic predicted pathways, selecting Pathways with Description as Anticancer_immunotherapy and their corresponding Genes. Can be directly used in your own article, remember to cite the example paper~~
+- tcga_blca_fpkm.txt, gene expression matrix.
+- Pathway gene information: The example paper organized two types of pathways based on literature, other pathways can follow this format:
+  - bladder cancer signature.txt, bladder cancer-related signatures, with one pathway per row, first column as pathway name (Signature), second column as genes (Genes). Used for plotting (C) Correlations between Siglec15 and the steps of the cancer immunity cycle. Derived from Table S9.xlsx of the example paper, Bladder cancer signatures, taking Signature and Genes columns. Organized by the example paper authors from this article: Mariathasan S, Turley SJ, Nickles D, Castiglioni A, Yuen K, Wang Y, et al. TGFβ attenuates tumour response to PD-L1 blockade by contributing to exclusion of T cells. Nature. 2018; 554: 544-8.
+  - immunotherapy predicted pathways.txt, therapeutic signatures, used for plotting (D) Correlations between Siglec15 and the enrichment scores of immunotherapy-predicted pathways. Organized from Table S9.xlsx of the example paper, Therapeutic predicted pathways, selecting Pathways with Description as Anticancer_immunotherapy and their corresponding Genes. Can be directly used in your own article, remember to cite the example paper~~
 
 "A set of **gene signatures positively correlated with the clinical response of an anti-PD-L1 agent (atezolizumab) in BLCA** were collected from Mariathasan’s study [27]. Twelve bladder cancer signatures that are specific to different molecular subtypes were collected from the study performed by the Bladder Cancer Molecular Taxonomy Group [19]. We also collected other **therapeutic signatures**, including oncogenic pathways that could shape a non-inflamed TME, targeted therapy-associated gene signatures, and gene signatures predicting radiotherapy responses (Table S9)."
 
 ```{r}
-# 读取数据  / Load data
+# 读取数据 | Load data
 tryCatch({
   expr <- fread("tcga_blca_fpkm.txt", sep = "\t", header = TRUE, check.names = FALSE)
   expr <- as.data.frame(expr)
   rownames(expr) <- expr[, 1]
   expr <- expr[, -1]
   
-  # 检查SIGLEC15基因是否存在
+  # 检查SIGLEC15基因是否存在 | Detect SIGLEC15
   if (!"SIGLEC15" %in% rownames(expr)) {
     stop("SIGLEC15 gene not found in expression matrix")
   }
@@ -142,7 +140,7 @@ tryCatch({
     stop("No tumor samples found")
   }
   
-  # 取出SIGLEC15表达量  / Extract SIGLEC15 expression
+  # 取出SIGLEC15表达量 | Extract SIGLEC15 expression
   siglec15 <- log2(expr["SIGLEC15",tumsam] + 1)
   write.csv(siglec15, "easy_input_gene.csv")
   
@@ -163,7 +161,7 @@ for (i in rownames(immPath)) {
   immPath.list[[i]] <- tmp
 }
 
-# 加载膀胱癌相关签名 / Load bladder cancer related signatures
+# 加载膀胱癌相关签名 | Load bladder cancer related signatures
 blcaPath <- read.table("bladder cancer signature.txt",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
 blcaPath.list <- list()
 for (i in rownames(blcaPath)) {
@@ -186,7 +184,7 @@ immPath.param <- GSVA::ssgseaParam(
   immPath.list
 )
 immPath.score <- GSVA::gsva(immPath.param, verbose = FALSE)
-# 保存到文件，便于套用 / Save to file for easy reuse
+# 保存到文件，便于套用 | Save to file for easy reuse
 write.table(immPath.score, "easy_input_immPath.txt", sep = "\t", row.names = TRUE, col.names = NA, quote = FALSE)
 
 # 计算膀胱癌相关签名的富集得分
@@ -196,7 +194,7 @@ blcaPath.param <- GSVA::ssgseaParam(
   blcaPath.list
 )
 blcaPath.score <- GSVA::gsva(blcaPath.param, verbose = FALSE)
-# 保存到文件，便于套用 / Save to file for easy reuse
+# 保存到文件，便于套用 | Save to file for easy reuse
 write.table(blcaPath.score, "easy_input_blcaPath.txt", sep = "\t", row.names = TRUE, col.names = NA, quote = FALSE)
 ```
 
@@ -205,8 +203,8 @@ write.table(blcaPath.score, "easy_input_blcaPath.txt", sep = "\t", row.names = T
 > For your own data, you may want to extract pathways of interest and calculate their enrichment scores. You can download the gmt file c5.all.v7.4.symbols.gmt from msigdb, extract pathways of interest and their corresponding genes, and calculate enrichment scores.
 
 ```{r eval=FALSE}
-# 从gmt文件提取感兴趣的通路 / Extract pathways of interest from gmt file
-# 例如提取带有`METABOLISM`字样的通路 / For example, extract pathways containing `METABOLISM`
+# 从gmt文件提取感兴趣的通路 | Extract pathways of interest from gmt file
+# 例如提取带有`METABOLISM`字样的通路 | For example, extract pathways containing `METABOLISM`
 gset <- gmt2list("c5.all.v7.4.symbols.gmt") 
 
 # 使用data.table的%like%操作符提取包含METABOLISM的通路
@@ -220,7 +218,7 @@ if (length(gset.list) == 0) {
 
 cat("Found", length(gset.list), "pathways containing 'METABOLISM'\n")
 
-# 计算通路富集得分 / Calculate pathway enrichment scores
+# 计算通路富集得分 | Calculate pathway enrichment scores
 gset.score <- GSVA::gsva(
   expr = as.matrix(log2(expr[, tumsam] + 1)),
   gset.idx.list = gset.list,
@@ -229,33 +227,45 @@ gset.score <- GSVA::gsva(
   parallel.sz = 1   # 单线程运行，避免并行问题
 )
 
-# 保存到文件 / Save to file
+# 保存到文件 | Save to file
 write.table(gset.score, "easy_input_gset.txt", sep = "\t", row.names = TRUE, col.names = NA, quote = FALSE)
 
 cat("Pathway enrichment scores saved to 'easy_input_gset.txt'\n")
 ```
 
-# 开始画图 ｜ Start Plotting
+## 开始画图 ｜ Start Plotting
+
+**关于 -log10(p-value) 的使用说明 | About -log10(p-value) Usage**
+
+本图使用 -log10(p-value) 来可视化显著性水平，这是生物信息学中的标准做法。数值越大表示显著性越强：
+- 连线颜色基于 -log10(p-value) 进行编码
+- 图例中同时显示 p-value 范围和对应的 -log10(p-value) 范围
+- 参考：<https://mp.weixin.qq.com/s/dyaeBr8tnJhxN-fuYjE-hQ>
+
+This plot uses -log10(p-value) to visualize significance levels, which is a standard practice in bioinformatics. Higher values indicate stronger significance:
+- Line colors are encoded based on -log10(p-value)
+- The legend displays both p-value ranges and corresponding -log10(p-value) ranges
+- Reference: <https://mp.weixin.qq.com/s/dyaeBr8tnJhxN-fuYjE-hQ>
 
 ```{r}
 # 加载单个基因的表达量，也就是"1对多"的"1"
 # Load expression of a single gene, which is the "1" in "1-to-many"
 siglec15 <- read.csv("easy_input_gene.csv", row.names = 1, check.names = F)
 
-# 加载第一组富集得分 / Load first set of enrichment scores
+# 加载第一组富集得分 | Load first set of enrichment scores
 immPath.score <- read.table("easy_input_immPath.txt", check.names = F)
-# 跟目标基因SIGLEC15的表达量合并 / Merge with target gene SIGLEC15 expression
+# 跟目标基因SIGLEC15的表达量合并 | Merge with target gene SIGLEC15 expression
 immPath.score <- rbind.data.frame(immPath.score,
                                   siglec15)
 
-# 加载第二组富集得分 / Load second set of enrichment scores
+# 加载第二组富集得分 | Load second set of enrichment scores
 blcaPath.score <- read.table("easy_input_blcaPath.txt", check.names = F)
-# 跟目标基因SIGLEC15的表达量合并 / Merge with target gene SIGLEC15 expression
+# 跟目标基因SIGLEC15的表达量合并 | Merge with target gene SIGLEC15 expression
 blcaPath.score <- rbind.data.frame(blcaPath.score,
                                    siglec15)
 ```
 
-循环计算相关性并画图 / Loop to calculate correlations and plot
+循环计算相关性并画图 | Loop to calculate correlations and plot
 
 ```{r}
 # 循环计算相关性并绘制左下角
@@ -283,11 +293,11 @@ for (i in rownames(immPath.score)) {
 immCorSiglec15$sign <- ifelse(immCorSiglec15$r > 0,"pos","neg")
 immCorSiglec15$absR <- abs(immCorSiglec15$r)
 immCorSiglec15$rSeg <- as.character(cut(immCorSiglec15$absR,c(0,0.25,0.5,0.75,1),labels = c("0.25","0.50","0.75","1.00"),include.lowest = T))
-immCorSiglec15$pSeg <- as.character(cut(immCorSiglec15$p,c(0,0.001,0.01,0.05,1),labels = c("<0.001","<0.01","<0.05","ns"),include.lowest = T))
+immCorSiglec15$pSeg <- as.character(cut(-log10(immCorSiglec15$p),c(0,2,5,10,Inf),labels = c("ns (p≥0.01)","<0.01 (2≤-log10p<5)","<0.001 (5≤-log10p<10)","<1e-10 (-log10p≥10)"),include.lowest = T))
 immCorSiglec15[nrow(immCorSiglec15),"pSeg"] <- "Not Applicable"
 
 immCorSiglec15$rSeg <- factor(immCorSiglec15$rSeg, levels = c("0.25","0.50","0.75","1.00"))
-immCorSiglec15$pSeg <- factor(immCorSiglec15$pSeg, levels = c("<0.001","<0.01","<0.05","Not Applicable","ns"))
+immCorSiglec15$pSeg <- factor(immCorSiglec15$pSeg, levels = c("<1e-10 (-log10p≥10)","<0.001 (5≤-log10p<10)","<0.01 (2≤-log10p<5)","Not Applicable","ns (p≥0.01)"))
 immCorSiglec15$sign <- factor(immCorSiglec15$sign, levels = c("pos","neg"))
 
 p1 <- quickcor(t(immPath.score), 
@@ -331,11 +341,11 @@ for (i in rownames(blcaPath.score)) {
 blcaCorSiglec15$sign <- ifelse(blcaCorSiglec15$r > 0,"pos","neg")
 blcaCorSiglec15$absR <- abs(blcaCorSiglec15$r)
 blcaCorSiglec15$rSeg <- as.character(cut(blcaCorSiglec15$absR,c(0,0.25,0.5,0.75,1),labels = c("0.25","0.50","0.75","1.00"),include.lowest = T))
-blcaCorSiglec15$pSeg <- as.character(cut(blcaCorSiglec15$p,c(0,0.001,0.01,0.05,1),labels = c("<0.001","<0.01","<0.05","ns"),include.lowest = T))
+blcaCorSiglec15$pSeg <- as.character(cut(-log10(blcaCorSiglec15$p),c(0,2,5,10,Inf),labels = c("ns (p≥0.01)","<0.01 (2≤-log10p<5)","<0.001 (5≤-log10p<10)","<1e-10 (-log10p≥10)"),include.lowest = T))
 blcaCorSiglec15[nrow(blcaCorSiglec15),"pSeg"] <- "Not Applicable"
 
 blcaCorSiglec15$rSeg <- factor(blcaCorSiglec15$rSeg, levels = c("0.25","0.50","0.75","1.00"))
-blcaCorSiglec15$pSeg <- factor(blcaCorSiglec15$pSeg, levels = c("<0.001","<0.01","<0.05","Not Applicable","ns"))
+blcaCorSiglec15$pSeg <- factor(blcaCorSiglec15$pSeg, levels = c("<1e-10 (-log10p≥10)","<0.001 (5≤-log10p<10)","<0.01 (2≤-log10p<5)","Not Applicable","ns (p≥0.01)"))
 blcaCorSiglec15$sign <- factor(blcaCorSiglec15$sign, levels = c("pos","neg"))
 
 p2 <- quickcor(t(blcaPath.score), 
