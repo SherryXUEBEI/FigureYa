@@ -6,7 +6,7 @@ function highlight(text, terms) {
   return text.replace(re, `<span class="highlight">$1</span>`);
 }
 
-function getContextSnippet(text, query, contextLength = 150) {
+function getContextSnippet(text, query, contextLength = 50) {
   const queryLower = query.toLowerCase();
   const textLower = text.toLowerCase();
 
