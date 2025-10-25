@@ -6,6 +6,28 @@ function highlight(text, terms) {
   return text.replace(re, `<span class="highlight">$1</span>`);
 }
 
+function getContextSnippet(text, query, contextLength = 150) {
+  const queryLower = query.toLowerCase();
+  const textLower = text.toLowerCase();
+
+  // Find first occurrence of query in text
+  const index = textLower.indexOf(queryLower);
+  if (index === -1) return '';
+
+  // Calculate context boundaries
+  const start = Math.max(0, index - contextLength);
+  const end = Math.min(text.length, index + query.length + contextLength);
+
+  // Extract context
+  let context = text.substring(start, end);
+
+  // Add ellipsis if truncated
+  if (start > 0) context = '...' + context;
+  if (end < text.length) context = context + '...';
+
+  return context;
+}
+
 function renderToc() {
   const tocGrid = document.getElementById("tocGrid");
   if (!tocGrid) return;
@@ -132,6 +154,18 @@ function doSearch() {
   filteredFolders.forEach(folderData => {
     const thumb = folderData.thumb;
 
+    // Find the first matching result for this folder to get context
+    const matchingResult = results.find(r => r.item.folder === folderData.folder);
+    let contextSnippet = '';
+    if (matchingResult) {
+      contextSnippet = getContextSnippet(matchingResult.item.text, q);
+      if (contextSnippet) {
+        // Highlight the search terms in the context
+        const terms = q.split(/\s+/).filter(t => t.length > 0);
+        contextSnippet = highlight(contextSnippet, terms);
+      }
+    }
+
     filteredHtml += `<div class="card">`;
     filteredHtml += thumb
       ? `<img src="${thumb}" alt="${folderData.folder}" loading="lazy">`
@@ -142,7 +176,13 @@ function doSearch() {
     folderData.htmls.forEach(h => {
       filteredHtml += `<a href="${h.href}" target="_blank" style="display:inline-block;margin:0 3px 2px 0">${h.name}</a>`;
     });
-    filteredHtml += `</div></div>`;
+    filteredHtml += `</div>`;
+
+    if (contextSnippet) {
+      filteredHtml += `<div class="card-context">${contextSnippet}</div>`;
+    }
+
+    filteredHtml += `</div>`;
   });
 
   // 创建新的结果网格容器
