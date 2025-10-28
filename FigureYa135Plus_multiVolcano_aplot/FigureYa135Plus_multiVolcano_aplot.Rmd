@@ -1,0 +1,227 @@
+---
+title: "FigureYa135multiVolcano_aplot_fixed"
+params:
+  author: "Qian Liu, Zread AI Assistant"
+  reviewer: "Ying Ge, Junyi Shen"
+output: html_document
+---
+
+# 环境设置
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# 安装和加载 aplot
+if (!require("aplot")) {
+  if (!require("devtools")) install.packages("devtools")
+  devtools::install_github("YuLab-SMU/aplot")
+}
+
+library(magrittr)
+library(ggplot2)
+library(ggrepel)
+library(janitor)
+library(aplot)
+library(dplyr)
+library(scales)
+
+Sys.setenv(LANGUAGE = "en")
+options(stringsAsFactors = FALSE)
+```
+
+# 数据加载和预处理
+```{r}
+data <- read.csv("easy_input.csv", check.names = FALSE)
+rownames(data) <- data[, 1]
+colnames(data)[1] <- "Geneid"
+
+data$neg_log10_p <- -log10(data$P.Value)
+data$label <- ifelse(data$neg_log10_p > 60, rownames(data), "")
+
+# 预计算全局范围，确保所有图使用相同的坐标系
+x_range <- range(data$deltaBeta)
+y_range <- c(0, 100)
+
+head(data)
+```
+
+# 创建主火山图
+```{r}
+create_volcano_plot <- function(df, x_lim, y_lim) {
+  ggplot(df, aes(deltaBeta, neg_log10_p)) +
+    geom_text_repel(aes(label = label), 
+                    size = 3, max.overlaps = Inf,
+                    box.padding = 0.3, point.padding = 0.3) +
+    geom_point(aes(color = feature), alpha = 0.8, size = 1.2) +
+    labs(x = "Methylation difference (beta-value)",
+         y = bquote(~-log[10]~(italic("P-value")))) +
+    theme_classic() +
+    theme(
+      axis.title = element_text(color = "black", size = 14, face = "bold"),
+      axis.text = element_text(color = "black", size = 12),
+      legend.position = "none",
+      panel.border = element_rect(color = "black", fill = NA, size = 0.5),
+      plot.margin = margin(5, 5, 5, 5)
+    ) +
+    scale_y_continuous(
+      breaks = c(0, 25, 50, 75, 100),
+      labels = c(0, 25, 50, 75, ""),
+      limits = y_lim
+    ) +
+    scale_x_continuous(limits = x_lim) +
+    coord_cartesian(xlim = x_lim, ylim = y_lim)
+}
+```
+
+# 创建顶部百分比图
+```{r}
+create_top_percentage_plot <- function(df, x_lim) {
+  # 计算百分比
+  percent_hyper <- sum(df$deltaBeta > 0) / nrow(df) * 100
+  percent_hypo <- sum(df$deltaBeta < 0) / nrow(df) * 100
+  
+  # 创建百分比条数据 - 使用简单的数值坐标
+  percentage_data <- data.frame(
+    x = c(x_lim[1] + (0 - x_lim[1])/2, (x_lim[2] - 0)/2),
+    y = c(0.5, 0.5),
+    width = c(0 - x_lim[1], x_lim[2] - 0),
+    height = c(1, 1),
+    category = c("Hypomethylated", "Hypermethylated"),
+    percentage = c(round(percent_hypo, 1), round(percent_hyper, 1)),
+    fill_color = c("#BEBEBE", "#4D4D4D"),
+    text_color = c("black", "white")
+  )
+  
+  ggplot(percentage_data, aes(x = x, y = y)) +
+    geom_tile(aes(width = width, height = height, fill = I(fill_color)), 
+              color = "black", size = 0.5) +
+    geom_text(aes(label = paste0(percentage, "%"), color = I(text_color)),
+              fontface = "bold", size = 4) +
+    theme_void() +
+    theme(
+      plot.margin = margin(0, 5, 0, 5),
+      panel.background = element_blank()
+    ) +
+    scale_x_continuous(limits = x_lim) +
+    scale_y_continuous(limits = c(0, 1)) +
+    coord_cartesian(xlim = x_lim, ylim = c(0, 1))
+}
+```
+
+# 创建右侧特征柱状图
+```{r}
+create_feature_barplot <- function(df) {
+  # 计算特征统计
+  feature_stats <- df %>%
+    count(feature) %>%
+    mutate(percentage = round(n / sum(n) * 100, 1)) %>%
+    arrange(desc(n)) %>%
+    mutate(
+      feature_clean = case_when(
+        feature == "1stExon" ~ "1stExon",
+        feature == "3'UTR" ~ "3'UTR", 
+        feature == "5'UTR" ~ "5'UTR",
+        feature == "Body" ~ "Body",
+        feature == "IGR" ~ "IGR",
+        feature == "TSS1500" ~ "TSS1500",
+        feature == "TSS200" ~ "TSS200",
+        TRUE ~ feature
+      ),
+      y_pos = row_number()
+    )
+  
+  # 获取颜色映射
+  colors <- scales::hue_pal()(length(unique(df$feature)))
+  names(colors) <- sort(unique(df$feature))
+  
+  ggplot(feature_stats, aes(x = n, y = y_pos)) +
+    geom_col(fill = "#BEBEBE", color = "black", width = 0.8) +
+    geom_point(aes(color = feature), size = 3, x = 0) +
+    geom_text(aes(label = paste0(percentage, "%")), 
+              hjust = -0.1, fontface = "bold", size = 3) +
+    geom_text(aes(x = -max(n)*0.1, label = feature_clean),
+              hjust = 1, fontface = "bold", size = 3) +
+    scale_color_manual(values = colors) +
+    theme_void() +
+    theme(
+      legend.position = "none",
+      plot.margin = margin(5, 5, 5, 0)
+    ) +
+    scale_x_continuous(limits = c(-max(feature_stats$n)*0.2, max(feature_stats$n)*1.3)) +
+    scale_y_continuous(limits = c(0.5, nrow(feature_stats) + 0.5)) +
+    coord_cartesian(
+      xlim = c(-max(feature_stats$n)*0.2, max(feature_stats$n)*1.3),
+      ylim = c(0.5, nrow(feature_stats) + 0.5)
+    )
+}
+```
+
+# 使用 aplot 组合图形
+```{r, fig.width=12, fig.height=8}
+# 创建三个子图，使用统一的坐标限制
+p_main <- create_volcano_plot(data, x_range, y_range)
+p_top <- create_top_percentage_plot(data, x_range)  
+p_right <- create_feature_barplot(data)
+
+# 先测试单独的图是否正常
+cat("测试主图:\n")
+print(p_main)
+```
+
+```{r, fig.width=12, fig.height=2}
+cat("测试顶部图:\n")
+print(p_top)
+```
+
+```{r, fig.width=3, fig.height=8}
+cat("测试右侧图:\n")
+print(p_right)
+```
+
+```{r, fig.width=12, fig.height=8}
+# 使用 aplot 进行组合
+cat("开始组合图形...\n")
+
+# 方法1：分步组合
+step1 <- insert_top(p_main, p_top, height = 0.15)
+cat("第一步完成：添加顶部图\n")
+print(step1)
+```
+
+```{r, fig.width=12, fig.height=8}
+# 方法2：完整组合
+volcano_combined <- insert_top(p_main, p_top, height = 0.15) %>%
+  insert_right(p_right, width = 0.25)
+
+cat("组合完成！\n")
+print(volcano_combined)
+```
+
+# 保存图片
+```{r}
+# 保存组合图
+ggsave("multiVolcano_aplot_fixed.pdf", volcano_combined, 
+       width = 12, height = 8, dpi = 300)
+
+cat("图片保存完成：multiVolcano_aplot_fixed.pdf\n")
+```
+
+# 替代方案：基础包组合
+```{r, fig.width=12, fig.height=8}
+# 如果上述方法仍有问题，使用基础包的组合方案
+cat("尝试替代方案...\n")
+
+# 使用 grid 包进行图形组合
+library(grid)
+library(gridExtra)
+
+# 创建一个简单的组合图形
+combined_plot <- grid.arrange(p_main, ncol = 1)
+print(combined_plot)
+```
+
+# 会话信息
+```{r}
+sessionInfo()
+```
