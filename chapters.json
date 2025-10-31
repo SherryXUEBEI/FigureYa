@@ -1992,12 +1992,12 @@
     "thumb": "gallery_compress/FigureYa244PCAPlot.webp"
   },
   {
-    "id": "main_FigureYa245VarDecompose_FigureYa245VarDecompose",
-    "title": "FigureYa245VarDecompose/FigureYa245VarDecompose.html",
-    "html": "FigureYa245VarDecompose/FigureYa245VarDecompose.html",
-    "text": "texts/main_FigureYa245VarDecompose_FigureYa245VarDecompose.txt",
-    "folder": "FigureYa245VarDecompose",
-    "thumb": "gallery_compress/FigureYa245VarDecompose.webp"
+    "id": "main_FigureYa245VarDecompose_update_FigureYa245VarDecompose_update",
+    "title": "FigureYa245VarDecompose_update/FigureYa245VarDecompose_update.html",
+    "html": "FigureYa245VarDecompose_update/FigureYa245VarDecompose_update.html",
+    "text": "texts/main_FigureYa245VarDecompose_update_FigureYa245VarDecompose_update.txt",
+    "folder": "FigureYa245VarDecompose_update",
+    "thumb": null
   },
   {
     "id": "main_FigureYa246supervisedGDSC_FigureYa246supervisedGDSC",
