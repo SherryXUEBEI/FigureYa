@@ -1992,6 +1992,14 @@
     "thumb": "gallery_compress/FigureYa244PCAPlot.webp"
   },
   {
+    "id": "main_FigureYa245Plus_VarDecompose_index",
+    "title": "FigureYa245Plus_VarDecompose/index.html",
+    "html": "FigureYa245Plus_VarDecompose/index.html",
+    "text": "texts/main_FigureYa245Plus_VarDecompose_index.txt",
+    "folder": "FigureYa245Plus_VarDecompose",
+    "thumb": null
+  },
+  {
     "id": "main_FigureYa245VarDecompose_update_FigureYa245VarDecompose_update",
     "title": "FigureYa245VarDecompose_update/FigureYa245VarDecompose_update.html",
     "html": "FigureYa245VarDecompose_update/FigureYa245VarDecompose_update.html",
