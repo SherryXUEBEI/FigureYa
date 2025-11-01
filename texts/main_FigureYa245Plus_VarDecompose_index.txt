@@ -67,4 +67,4 @@ Citation
 FigureYa Framework:
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
 Variance Decomposition Method:
-Lin, S. et al. (2014). Comparison of the transcriptional landscapes between human and mouse tissues. PNAS. https://doi.org/10.1073/pnas.1413624111
+Yue, F., Cheng, Y., Breschi, A. et al. A comparative encyclopedia of DNA elements in the mouse genome. Nature 515, 355–364 (2014). https://doi.org/10.1038/nature13992
