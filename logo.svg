@@ -1,0 +1,38 @@
+<svg width="200" height="230" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hexagon background -->
+  <polygon points="100,10 190,60 190,160 100,210 10,160 10,60" 
+           fill="#2C5F7C" stroke="#1A3A4F" stroke-width="3"/>
+  
+  <!-- Inner hexagon for depth -->
+  <polygon points="100,30 170,70 170,150 100,190 30,150 30,70" 
+           fill="#3A7CA5" opacity="0.8"/>
+  
+  <!-- Chart elements representing data visualization -->
+  <!-- Bar chart -->
+  <rect x="50" y="120" width="15" height="50" fill="#81C3D7" rx="2"/>
+  <rect x="70" y="100" width="15" height="70" fill="#81C3D7" rx="2"/>
+  <rect x="90" y="110" width="15" height="60" fill="#81C3D7" rx="2"/>
+  
+  <!-- Line chart -->
+  <polyline points="115,140 130,120 145,130 160,110" 
+            stroke="#F4E04D" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <circle cx="115" cy="140" r="4" fill="#F4E04D"/>
+  <circle cx="130" cy="120" r="4" fill="#F4E04D"/>
+  <circle cx="145" cy="130" r="4" fill="#F4E04D"/>
+  <circle cx="160" cy="110" r="4" fill="#F4E04D"/>
+  
+  <!-- DNA helix accent -->
+  <path d="M 40,70 Q 60,65 80,70 Q 100,75 120,70" 
+        stroke="#E8A87C" stroke-width="2.5" fill="none"/>
+  <path d="M 40,85 Q 60,80 80,85 Q 100,90 120,85" 
+        stroke="#E8A87C" stroke-width="2.5" fill="none"/>
+  <circle cx="40" cy="70" r="3" fill="#E8A87C"/>
+  <circle cx="80" cy="70" r="3" fill="#E8A87C"/>
+  <circle cx="120" cy="70" r="3" fill="#E8A87C"/>
+  
+  <!-- Text -->
+  <text x="100" y="55" font-family="Arial, sans-serif" font-size="20" 
+        font-weight="bold" fill="#FFFFFF" text-anchor="middle">FigureYa</text>
+  <text x="100" y="205" font-family="SimHei, 微软雅黑, sans-serif" font-size="38" 
+        font-weight="bold" fill="#F4E04D" text-anchor="middle">丫</text>
+</svg>
