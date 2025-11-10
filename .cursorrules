@@ -110,4 +110,13 @@ If needed, you can further use the `web_scraper.py` file to scrape the web page 
 计划步骤：
 [X] 使用 `git status -sb` 和 `git log --oneline --graph --decorate --all` 复查当前分支状态
 [X] 检查是否存在未跟踪文件或其他分支上的提交
-[ ] 根据结果向用户解释原因并提供后续建议
+[X] 根据结果向用户解释原因并提供后续建议
+
+## Current Task: 安装缺失的 R 依赖
+
+任务描述：解决 `FigureYa308IHS.Rmd` Knit 过程中 `viper` 包依赖的 `kernlab` 未安装问题，确保依赖脚本可正确安装并验证。
+
+计划步骤：
+[X] 运行 `install_dependencies.R` 或手动安装 `kernlab`，确认安装日志
+[X] 验证 `viper` 包可正常加载（可通过脚本自检或手动 `library(viper)`）
+[X] 如有必要更新脚本或说明，并向用户反馈处理结果
