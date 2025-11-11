@@ -120,3 +120,21 @@ If needed, you can further use the `web_scraper.py` file to scrape the web page 
 [X] 运行 `install_dependencies.R` 或手动安装 `kernlab`，确认安装日志
 [X] 验证 `viper` 包可正常加载（可通过脚本自检或手动 `library(viper)`）
 [X] 如有必要更新脚本或说明，并向用户反馈处理结果
+
+## Current Task: 调整火山图配色与标注
+
+任务描述：根据用户提供的示例图调整 `FigureYa321volcanoSE` 火山图的配色与标注样式，确保关键基因颜色和透明度一致。
+
+计划步骤：
+[X] 对比示例图提取颜色和透明度信息
+[X] 更新 `FigureYa321volcanoSE.Rmd` 绘图代码中的调色方案和几何图层配置
+[X] 提醒用户重新渲染核对效果
+
+## Current Task: 优化 index.html 导航体验
+
+任务描述：评估仓库根目录下 `index.html` 的结构，提出或实现功能改进方案，使访客更容易定位所需模块，适配 GitHub Pages 访问场景。
+
+计划步骤：
+[X] 阅读 `index.html` 了解现有结构与内容组织方式
+[X] 归纳访客可能的检索路径并列出可改进的交互/导航功能
+[X] 向用户提供功能建议（必要时附带实现思路或示例代码）
