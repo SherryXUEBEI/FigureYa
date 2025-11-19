@@ -33,7 +33,9 @@ Use TCGA expression profiles and somatic mutations as inputs, convert somatic mu
 
 ![](example.png)
 
-From<https://www.nature.com/articles/s41586-019-1032-7>
+Fig. 2: Immune editing at the DNA level.
+a, Pairwise genomic and immune distances between every two tumour regions from the same tumour are compared (lung adenocarcinoma, P = 3.5 × 10−4 , n = 217;lung squamous cell carcinoma, P = 0.002, n = 186). b, c, The Shannon diversity index for each tumour region is show, grouped by immune classification. Lung adenocarcinomas (n = 159)
+From <https://www.nature.com/articles/s41586-019-1032-7>
 
 ## 应用场景
 ## Application Scenarios
@@ -55,8 +57,8 @@ Sys.setenv(LANGUAGE = "en") # 设置环境语言为英文，以便显示英文�
 options(stringsAsFactors = FALSE) # 禁止字符串自动转换为因子类型，避免数据处理中的意外转换 (Disable automatic conversion of strings to factors)
 ```
 
-## 输入数据预处理
-## Input data preprocessing
+## 输入文件
+## Input files
 
 需要三种文件：
 
@@ -237,7 +239,6 @@ gsva_params <- ssgseaParam(exprData = as.matrix(tcga_expr_lusc),
                        geneSets = immune.sig)
 
 tcga_gsva_lusc <- gsva(gsva_params)
-
 ```
 
 ## 样本聚类提取距离
