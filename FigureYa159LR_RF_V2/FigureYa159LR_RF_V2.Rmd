@@ -19,7 +19,7 @@ output:
 **Date**: `r Sys.Date()`  
 
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -48,8 +48,7 @@ Figure 3 | The predictive power of pseudogene expression in classification of UC
 在LASSO降维的基础上，采用logistic regression或Random forest的方法，进行5-fold cross-validation评估LASSO selected feature的预测效能。
 On the basis of LASSO dimensionality reduction, logistic regression or Random forest methods are used to conduct 5-fold cross-validation to evaluate the prediction performance of LASSO selected features.
 
-# 环境设置
-# Environment Setup
+# 环境设置 Environment Setup
 
 
 ```{r}
@@ -206,8 +205,7 @@ for (i in 1:n.fold) {
 }
 ```
 
-# 开始画图
-# Start drawing
+# 开始画图 Start Drawing
 
 绘制ROC，对比LR和RF。
 Draw ROC and compare LR and RF.
@@ -246,7 +244,7 @@ invisible(dev.off())
 
 ![](LR_RF.pdf)
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

@@ -18,7 +18,7 @@ output:
 **Reviewer(s)**: `r params$reviewer`  
 **Date**: `r Sys.Date()`  
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -80,8 +80,7 @@ Study the relationships and distributions of expression, methylation, and copy n
 
 Here, using breast cancer as an example, the PAM50 classification includes five subtypes.
 
-# 环境设置
-# Environment Setup
+# 环境设置 Environment Setup
 
 ```{r}
 source("install_dependencies.R")
@@ -527,7 +526,7 @@ draw(hm.expr + hm.corExprMeth + hm.ampFreq + hm.delFreq,
 invisible(dev.off())
 ```
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

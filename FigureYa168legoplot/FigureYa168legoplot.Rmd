@@ -19,7 +19,7 @@ output:
 **Date**: `r Sys.Date()`  
 
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -147,8 +147,7 @@ data$mut_reverse <- mut_reverse
 #write.csv(data[,c(13,15)], "very_easy_input.csv", quote = F, row.names = F)
 ```
 
-# 开始画图
-# Start drawing
+# 开始画图 Start Drawing
 
 ## 画lego图
 ## Drawing a Lego Chart
@@ -247,7 +246,7 @@ dev.off()
 输出的PDF文件可以使用AI打开，拼接
 The output PDF file can be opened and spliced using AI.
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

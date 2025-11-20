@@ -19,7 +19,7 @@ output:
 **Date**: `r Sys.Date()`  
 
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -534,7 +534,7 @@ p_value <- survAnalysis(mainTitle="Molecular_Subtype_NMF", time, status, NMF_gro
 
 Xu T, Le T D, Liu L, et al. CancerSubtypes: an R/Bioconductor package for molecular cancer subtype identification, validation and visualization[J]. Bioinformatics, 2017, 33(19): 3131-3133.
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

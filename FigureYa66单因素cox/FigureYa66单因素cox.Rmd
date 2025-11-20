@@ -13,7 +13,7 @@ output:
     code_folding: show
 ---
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. doi.org/10.1002/imm3.70005
@@ -524,7 +524,7 @@ ggplot(data = AAtop20, aes(x = HR, y = symbol, color = pvalue)) +
 ggsave('sameplot.pdf', width = 8, height = 9)
 ```
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

@@ -19,7 +19,7 @@ output:
 **Date**: `r Sys.Date()`  
 
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -328,7 +328,7 @@ The output PDF is a vector image, which can be opened with software such as Illu
 *[ColorfulVennPlot Source Code]（ https://github.com/cran/colorfulVennPlot/tree/master/R )   
 *[Convert numbers to binary]（ https://stackoverflow.com/questions/12088080/how-to-convert-integer-number-into-binary-vector )   
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

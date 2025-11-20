@@ -135,8 +135,7 @@ test2cor = function(x1, x2, y1, y2, method = "pearson") {
 }
 ```
 
-## 输入文件
-## Input file
+## 输入文件 Input file
 
 easy_input.csv，第一列和第二列是连续变量，分别对应图上的横纵坐标，第三列是分组。
 

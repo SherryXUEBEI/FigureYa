@@ -18,7 +18,7 @@ output:
 **Reviewer(s)**: `r params$reviewer`  
 **Date**: `r Sys.Date()`  
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -82,8 +82,7 @@ For Figure1CDE will be launched successively. Stay tuned for updates.
 
 Analyze somatic copy number variations (SCNAs) related to ferroptosis across pan-cancer and generate bar plots.
 
-# 环境设置
-# Environment Setup
+# 环境设置 Environment Setup
 
 ```{r}
 source("install_dependencies.R")
@@ -293,7 +292,7 @@ ggsave("Figure 1A copy number variation rate of interested genes in pancancer.pd
 rm(cnv); gc()
 ```
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

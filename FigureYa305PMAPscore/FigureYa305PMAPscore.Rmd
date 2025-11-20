@@ -18,7 +18,7 @@ output:
 **Reviewer(s)**: `r params$reviewer`  
 **Date**: `r Sys.Date()` 
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -65,8 +65,7 @@ It only cares which genes have mutations during calculation, weights and sums th
 
 The PMAPscore requires pathway information in kgml format, so MSigDB gene sets cannot be directly used here. Therefore, added code to batch download kgml files, read them as R objects, and apply them to PMAP calculations.
 
-# 环境设置
-# Environment Setup
+# 环境设置 Environment Setup
 
 ```{r}
 source("install_dependencies.R")
@@ -263,7 +262,7 @@ pheatmap(mat = plot.data,
 dev.copy2pdf(file = "PFSscore.Heatmap.pdf", width = 10, height = 6)
 ```
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

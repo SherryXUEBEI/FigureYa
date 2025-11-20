@@ -17,7 +17,7 @@ output:
 **Date**: `r Sys.Date()`  
 
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -237,7 +237,7 @@ For example, microarray:< http://genomicsclass.github.io/book/pages/gene_set_ana
 
 More enrichment analysis methods in the limma package:< http://web.mit.edu/ ~r/current/arch/i386_linux26/lib/R/library/limma/html/10GeneSetTests.html>
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

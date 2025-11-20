@@ -19,7 +19,7 @@ output:
 **Reviewer(s)**: `r params$reviewer`  
 **Date**: `r params$date` 
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
   
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -391,7 +391,7 @@ write.table(resList$predNewSamples, file.path(res.path, "output_ClassPrediction.
             row.names = F, col.names = T, sep = "\t", quote = F)
 ```
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

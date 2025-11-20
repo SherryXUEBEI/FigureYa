@@ -1,8 +1,8 @@
 ---
 title: "FigureYa310CPDBChordGramV2"
 params:
-  author: "Xiaofan Lu; Yasi Zhang"  
-  reviewer: "Ying Ge"
+  author: "Xiaofan Lu"  
+  reviewer: "Ying Ge, Yasi Zhang"
 output: 
   html_document:
     toc: true
@@ -31,8 +31,7 @@ Gu, Z. circlize implements and enhances circular visualization in R. Bioinformat
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## 需求描述
-## Demand description
+## 需求描述 Requirement description
 
 以CellPhoneDB的结果文件作为输入，画出细胞沟通的弦图
 
@@ -54,8 +53,7 @@ Figure 3. Cellular crosstalk analysis.
 Shown are the top 10 differentially expressed cancer cell ligands. 
 **Red** interactions are upregulated in LUAD, and **blue** interactions are upregulated in LUSC.
 
-## 应用场景
-## Application scenarios
+## 应用场景 Application scenarios
 
 用cellphoneDB结果，对比展示**两组样本**的配体-受体差异。
 
@@ -68,8 +66,7 @@ Using CellPhoneDB results to comparatively visualize ligand-receptor differences
 ggplot2 to generate a bubble plot (reference: FigureYa178receptorLigand).
 - Use CellChat to analyze and compare ligand-receptor differences between **two sample groups** (reference: FigureYa267scCellChat).
 
-## 环境设置
-## Environment Setup
+## 环境设置 Environment settings
 
 ```{r}
 source("install_dependencies.R")
@@ -259,8 +256,7 @@ cpdb.chordgram <- function(seu, means, pvalues,
 }
 ```
 
-## 输入文件的获得
-## Obtaining Input Files
+## 输入文件的获得 Obtain the input files
 
 先运行cellphoneDB，然后以cellphoneDB的结果文件作为输入画图。
 
@@ -315,8 +311,7 @@ After execution, an 'out' folder will be created containing four files: means.tx
 
 The 'out' folder contains CellPhoneDB output files
 
-## 读取cellphoneDB运行结果
-## Loading CellPhoneDB results
+## 读取cellphoneDB运行结果 Loading CellPhoneDB results
 
 ```{r}
 # 读取cellphoneDB运行结果
@@ -338,8 +333,7 @@ plot.data <- cpdb.chordgram(seu = seu, means = means, pvalues = pvalues,
 table(plot.data$source, plot.data$target)
 ```
 
-## 差异分析并画图
-## Differential analysis and visualization
+## 差异分析并画图 Differential analysis and visualization
 
 ```{r}
 # 指定细胞类型对应的颜色

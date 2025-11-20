@@ -29,8 +29,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # 设置knitr代码块的全局选项 / Set global options for knitr code chunks
 ```
 
-## 需求描述
-## Requirement description
+## 需求描述 Requirement description
 
 希望用cellchat来实现：
 
@@ -314,8 +313,7 @@ ctrl.cellchat <- netAnalysis_computeCentrality(ctrl.cellchat, slot.name = "netP"
 saveRDS(ctrl.cellchat, "ctrl.cellchat.rds")
 ```
 
-## 开始画图
-## Start drawing
+## 开始画图 Start drawing
 
 ```{r}
 ## 加载上面保存的运行结果文件，可以从微云下载<https://share.weiyun.com/xcfPWC0L>

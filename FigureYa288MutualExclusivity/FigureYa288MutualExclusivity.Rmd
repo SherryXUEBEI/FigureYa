@@ -18,7 +18,7 @@ output:
 **Reviewer(s)**: `r params$reviewer`  
 **Date**: `r Sys.Date()` 
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -82,8 +82,7 @@ In this analysis, we employ one-sided Fisher's exact test to compute both **Odds
 As demonstrated in the Fisher's test implementation:
 "less" alternative indicates mutual exclusivity (competitive pattern; OR < 1), "greater" alternative denotes co-occurrence (cooperative pattern; OR > 1)
 
-# 环境设置
-# Environment Setup
+# 环境设置 Environment Setup
 
 ```{r}
 source("install_dependencies.R")
@@ -341,7 +340,7 @@ p
 ggsave("mutual_exclusivity_multiple_genes.pdf",width = 5,height = 5)
 ```
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

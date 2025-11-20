@@ -19,7 +19,7 @@ output:
 **Date**: `r Sys.Date()`  
 
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -272,7 +272,7 @@ fishPlot(fish, shape="spline")
 
 Furthermore, compare the three fish included in the fishplot with each other< https://github.com/chrisamiller/fishplot >Corresponding code:< https://github.com/chrisamiller/fishplot/blob/master/tests/test.R >You can master the rules of writing parents.
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

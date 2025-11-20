@@ -17,7 +17,7 @@ output:
 **Date**: `r Sys.Date()`  
 
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -26,8 +26,7 @@ Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for 
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## 需求描述
-## Requirement description
+## 需求描述 Requirement description
 
 用R代码画出paper里的Lollipop，棒棒糖🍭。
 
@@ -39,8 +38,7 @@ Draw the Lollipop in the paper using R code, lollipop 🍭.
 
 from<https://www.nature.com/articles/nature22973>
 
-## 应用场景
-## Application scenario
+## 应用场景 Application scenario
 
 某个基因的突变发生在哪个重要的结构域？推测该位点的突变影响了蛋白质功能。
 
@@ -54,8 +52,7 @@ Scenario 1: Show the mutation site of a gene in a cancer type in TCGA.
 
 Scenario 2: Compare the mutation sites of different cancers/subtypes.
 
-## 环境设置
-## Environment setting
+## 环境设置 Environment setting
 
 ```{r}
 source("install_dependencies.R")
@@ -96,8 +93,7 @@ mut<-GDCprepare(mutquery)
 write.table(mut[mut$Hugo_Symbol == "TP53",],"easy_input.txt",row.names = F,quote = F,sep = "\t")
 ```
 
-## 输入数据
-## Input data
+## 输入数据 Input data
 
 需要结构域和突变信息。
 
@@ -179,8 +175,7 @@ nrpos[names(table(pos$mutation)),]$rate <-table(pos$mutation)
 head(nrpos)
 ```
 
-## 开始画图
-## Start drawing
+## 开始画图 Start drawing
 
 ```{r,message=FALSE}
 #首先将上面获得的蛋白domain注释信息写入一个GRanges对象
@@ -287,7 +282,7 @@ dev.off()
 
 ![](test5.pdf)
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

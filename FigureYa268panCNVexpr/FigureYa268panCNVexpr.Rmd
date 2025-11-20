@@ -18,7 +18,7 @@ output:
 **Reviewer(s)**: `r params$reviewer`  
 **Date**: `r Sys.Date()`  
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -85,8 +85,7 @@ Figure 1DE will be launched successively, so stay tuned.
 
 Analyze the correlation between somatic copy number and gene expression (using ferroptosis as an example) and plot a scatter diagram.
 
-# 环境设置
-# Environment Setup
+# 环境设置 Environment Setup
 
 ```{r}
 source("install_dependencies.R")
@@ -384,7 +383,7 @@ rm(cna); gc()
 
 The example plot shows mostly positive correlations, which differs from the results we obtained here. Fellow researchers are welcome to join the discussion.
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

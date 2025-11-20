@@ -1,8 +1,8 @@
 ---
 title: "FigureYa89ggplotCircos"
 params:
-  author: "Yuhui Li, Taojun Ye"
-  reviewer: "Ying Ge"
+  author: "Yuhui Li"
+  reviewer: "Ying Ge, Taojun Ye"
 output: 
   html_document:
     toc: true
@@ -18,7 +18,7 @@ output:
 **Reviewer(s)**: `r params$reviewer`  
 **Date**: `r Sys.Date()`  
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -27,32 +27,25 @@ Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for 
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## 需求描述
+## 需求描述 Requirement description
 
 用R画出paper里的这种圆圈图。
-
-## Requirement description
 
 Draw the circle diagram in the paper using R.
 
 ![](example.png)
 
-出自<https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0990-4>
-
-from<https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0990-4>
+From <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0990-4>
 
 Fig. 2 Candidates’ selection and characterization. a. Circos plot shows **58 upregulated RNA-binding proteins (RBPs)** in glioblastoma (GBM) samples from The Cancer Genome Atlas (TCGA) and glioma stem cell (GSC) lines. **Fold-changes and corrected p-values** were extracted from the RNA-Seq analysis (GBM TCGA). Twenty-one RBPs were also associated with survival reduction and were further investigated.
 
-## 应用场景
+## 应用场景 Application scenarios
 
 圆圈图上用热图、柱形图、热图展示多组数据、pvalue和log2FC，可灵活换成其他特征值。
 
-## Application scenarios
-
 Use heatmaps, bar charts, and heatmaps on the circle chart to display multiple sets of data, p-values, and log2FC, which can be flexibly replaced with other feature values.
 
-## 环境设置
-## Environment settings
+## 环境设置 Environment settings
 
 ```{r}
 source("install_dependencies.R")
@@ -71,15 +64,13 @@ Sys.setenv(LANGUAGE = "en")  # 设置英文错误信息，便于查找解决方�
 options(stringsAsFactors = FALSE)  # 禁止自动将字符串转换为因子类型，避免数据类型意外转换 / Prevent automatic conversion of strings to factors
 ```
 
-## 输入数据的整理
+## 输入数据的整理 Organizing input data
 
 如果你的数据已经整理成easy_input.csv的格式，就可以跳过这步，直接进入“输入文件”。
 
 从文献中看，需要读取`TableS2.TCGA_GBM_DiffExpRBPs`和`TableS3.GSCs_DiffExpRBPs`两个sheet。
 
 另外，图中基因是按照Survival Reduction排列的，根据图反推survival Reduction，保存在survival.csv文件里。
-
-## Organizing input data
 
 If your data has already been organized into easy_input.csv format, you can skip this step and directly enter "Input File".
 
@@ -134,15 +125,13 @@ head(data_bind)  # 查看合并结果 / View merged data
 write.csv(data_bind, "easy_input.csv", quote = F, row.names = F)
 ```
 
-## 输入文件
+## 输入文件 Input file
 
 至少包含基因、log2FC、P_value，给出一列或多列的01用于画最外面的圈。
 
 此处把GBM、GSC、survival画到最外面的三个圈上，有就是1（最后显示为黑色），无就是0（最后显示为浅灰色）。
 
 用柱形图展示log2FC，用热图展示P value。
-
-## Input file
 
 At least including genes log2FC、P_value， Give one or more columns of 01 to draw the outermost circle.
 
@@ -166,15 +155,11 @@ data_bind <- read.csv("easy_input.csv",
 head(data_bind)
 ```
 
-## 开始画图
+## 开始画图 Start drawing
 
-### 首先画外面的3个环  
+### 首先画外面的3个环 First, draw the three outer rings
 
 环形文字的写法：<https://www.r-graph-gallery.com/296-add-labels-to-circular-barplot/>
-
-## Start drawing
-
-### First, draw the three outer rings
 
 The writing style of circular text:< https://www.r-graph-gallery.com/296-add-labels-to-circular-barplot/ >
 
@@ -265,11 +250,9 @@ p1 <- ggplot(data_result) +
 p1  # 显示图形 / Display plot
 ```
 
-### 画`log2FC`
+### 画`log2FC` Draw 'log2FC'`
 
 log2FC的y坐标从1开始，因此画图时要“y = log2FC - 1”
-
-### Draw 'log2FC'`
 
 The y-coordinate of log2FC starts from 1, so when drawing, it should be "y=log2FC -1"
 ```{r}
@@ -285,10 +268,7 @@ p2 <- p1 +
 p2  
 ```
 
-
-### 添加log2FC的坐标轴及刻度文字
-
-### Add coordinate axis and scale text for log2FC
+### 添加log2FC的坐标轴及刻度文字 Add coordinate axis and scale text for log2FC
 
 ```{r}
 # 在原有图形(p2)基础上添加坐标轴标记和参考线
@@ -311,9 +291,7 @@ p3 <- p2 +
 p3  
 ```
 
-### 画`P_value`热图
-
-### Draw a 'P_value' heatmap
+### 画`P_value`热图 Draw a 'P_value' heatmap
 
 ```{r}
 # 在原有图形(p3)基础上添加P值热图层
@@ -336,10 +314,7 @@ p4 <- p3 +
 p4  
 ```
 
-
-### 插入文本
-
-### Insert Text
+### 插入文本 Insert Text
 
 ```{r}
 # 在原有图形(p4)基础上添加各数据层的文本标签
@@ -383,12 +358,9 @@ p5 <- p4 +
 p5
 ```
 
-### 画P value的图例 
+### 画P value的图例 Draw a legend for P value
 
 将图例调整到panel内部，并且调节文本的相对大小和相对位置。   
-
-
-### Draw a legend for P value
 
 Adjust the legend inside the panel and adjust the relative size and position of the text.
 
@@ -428,19 +400,17 @@ p6  # 显示最终图形
 ggsave("ggplotCircos.pdf")
 ```
 
-## 后期加工
+## 后期加工 Post processing
 
 前面的代码通过x和y的值一点一点调整好文字和图例的位置。
 
 更容易的做法是：用矢量图编辑软件打开pdf文件，用鼠标调整。
 
-## Post processing
-
 The previous code adjusted the position of the text and legend bit by bit based on the values of x and y.
 
 An easier approach is to open the PDF file with vector graphics editing software and adjust it with the mouse.
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

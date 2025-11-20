@@ -18,7 +18,7 @@ output:
 **Reviewer(s)**: `r params$reviewer`  
 **Date**: `r Sys.Date()` 
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -69,8 +69,7 @@ FigureYa can be used to reproduce multiple figures from the example article, suc
 - Figure 4C → Refer to FigureYa85timeROC
 - Figure 4D → Refer to FigureYa33DCA
 
-# 环境设置
-# Environment Setup
+# 环境设置 Environment Setup
 
 ```{r}
 source("install_dependencies.R")
@@ -455,7 +454,7 @@ p
 ggsave(filename = "combined.pdf", width = 8,height = 6)
 ```
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

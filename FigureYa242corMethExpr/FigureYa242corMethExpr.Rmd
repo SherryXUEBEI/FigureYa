@@ -187,8 +187,7 @@ ct <- cor.test(corTab$expr,corTab$meth)
 reg <- lm(expr~meth, data=corTab) # 计算回归线 / Calculate regression line
 ```
 
-## 开始画图
-## Start drawing
+## 开始画图 Start drawing
 
 ```{r}
 pdf(file = paste0("correlation between expression and methylation of ",gene,".pdf"), width = 4.5,height = 4.5)

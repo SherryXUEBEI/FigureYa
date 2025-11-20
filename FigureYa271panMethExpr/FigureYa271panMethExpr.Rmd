@@ -18,7 +18,7 @@ output:
 **Reviewer(s)**: `r params$reviewer`  
 **Date**: `r Sys.Date()`  
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -390,7 +390,7 @@ ggplot(corExprMeth, aes(x = tumor, y = gene)) +
 ggsave("Figure 1E correlation between promoter methylation and expression of interested genes in pancancer.pdf", width = 8, height = 6)
 ```
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

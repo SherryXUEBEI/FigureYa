@@ -23,15 +23,13 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## 需求描述
-## Requirement description
+## 需求描述 Requirement description
 
 RNA-seq read count转换成TPM。
 
 Convert RNA-seq read count to TPM.
 
-## 应用场景
-## Application scenario
+## 应用场景 Application scenario
 
 只能拿到RNA-seq数据的read count，想转换成TPM。
 
@@ -379,8 +377,7 @@ expMatrix <- TCGAanalyze_Preprocessing(expquery2)
 write.table(expMatrix[,1:4], "easy_input.txt", sep="\t", quote=F, row.names=T)
 ```
 
-## 输入数据
-## Input data
+## 输入数据 Input data
 
 第一列是基因ID，第一行是sample ID。
 

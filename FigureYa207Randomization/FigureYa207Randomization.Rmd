@@ -18,7 +18,7 @@ output:
 **Reviewer(s)**: `r params$reviewer`  
 **Date**: `r Sys.Date()` 
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -82,8 +82,7 @@ The original article authors could have actually used an enrichment test to demo
 
 We even think that a randomization test might not need a null hypothesis at all, focusing only on the calculated probabilities. As computed in this project: in 1000 random samplings, DEGs had a 95.6% probability of appearing in normally expressed genes, meaning only a 4.4% probability of appearing in abnormally expressed genes.
 
-# 环境设置
-# Environment Setup
+# 环境设置 Environment Setup
 
 ```{r}
 source("install_dependencies.R")
@@ -374,7 +373,7 @@ dev.copy2pdf(file = "Randomization_density.pdf",width = 5, height = 4.5) # 存�
 ```
 
 # 会话信息
-# Session Info
+## Session Info
 
 ```{r}
 # 显示会话信息

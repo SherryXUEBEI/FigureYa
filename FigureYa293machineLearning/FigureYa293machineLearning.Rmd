@@ -18,7 +18,7 @@ output:
 **Reviewer(s)**: `r params$reviewer`  
 **Date**: `r Sys.Date()` 
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -96,8 +96,7 @@ For reference on figure design, you may consult FigureYa:
 - Figure 6，FigureYa105GDSC
 - Figure 7，FigureYa71ssGSEA、FigureYa152DouleCorPlotexamples.
 
-# 环境设置
-# Environment Setup
+# 环境设置 Environment Setup
 
 ```{r}
 source("install_dependencies.R")
@@ -1584,7 +1583,7 @@ ggplot(dd, aes(Cindex, reorder(ID, Cindex))) +
 ggsave("GSE62254_model_compare.pdf", width = 6, height = 8)
 ```
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()

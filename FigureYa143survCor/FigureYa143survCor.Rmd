@@ -19,7 +19,7 @@ output:
 **Date**: `r Sys.Date()`  
 
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -29,8 +29,7 @@ Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for 
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## 需求描述
-## Requirement description
+## 需求描述 Requirement description
 
 绘制较复杂的相关性图，包括计算每个表达值下的logrank score；以肠癌MSS和MSI样本为例。
 Draw a more complex correlation graph, including calculating the logrank score for each expression value; take colorectal cancer MSS and MSI samples as an example.
@@ -75,8 +74,7 @@ Sys.setenv(LANGUAGE = "en") #Display English error message
 options(stringsAsFactors = FALSE) #Disable conversion of chr to factor
 ```
 
-## 输入文件
-## Input file
+## 输入文件 Input file
 
 easy_input_expr.txt，基因表达矩阵。第一列是样本ID，二、三列分别是CD274和CD8A的TPM。每行一个样本。TPM的获得可参考FigureYa23count2TPM或FigureYa56immune_inflitration。或者直接用FigureYa34count2FPKM下载FPKM值。
 easy_input_expr.txt, gene expression matrix. The first column is the sample ID, and the second and third columns are the TPM of CD274 and CD8A respectively. One sample per row. For TPM, refer to FigureYa23count2TPM or FigureYa56immune_inflitration. Or directly use FigureYa34count2FPKM to download the FPKM value.
@@ -226,8 +224,7 @@ reg <- lm(CD8A~CD274,data=expr[order(expr$CD274),]) # 注意要按照x轴排序 
 ci <- as.data.frame(predict(reg, newdata = expr[order(expr$CD274),], interval = 'confidence')) # 计算置信域 # Calculate confidence region
 ```
 
-## 开始画图
-## Start drawing
+## 开始画图 Start drawing
 
 ```{r}
 # 设置颜色

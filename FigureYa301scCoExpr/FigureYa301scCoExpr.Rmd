@@ -18,7 +18,7 @@ output:
 **Reviewer(s)**: `r params$reviewer`  
 **Date**: `r Sys.Date()` 
 
-# Academic Citation
+## Academic Citation
 If you use this code in your work or research, we kindly request that you cite our publication:
 
 Xiaofan Lu, et al. (2025). FigureYa: A Standardized Visualization Framework for Enhancing Biomedical Data Interpretation and Research Efficiency. iMetaMed. https://doi.org/10.1002/imm3.70005
@@ -71,8 +71,7 @@ The darker the color, the higher the expression level of the indicated markers. 
 
 Displaying gene co-expression in single cells and the correlation of co-expressed genes.
 
-# 环境设置
-# Environment Setup
+# 环境设置 Environment Setup
 
 ```{r}
 source("install_dependencies.R")
@@ -253,7 +252,7 @@ getScatterplot(pbmc3k, gene1 = "CD3G", gene2 = "CD247",
   theme(aspect.ratio = 1)
 ```
 
-# Session Info
+## Session Info
 
 ```{r}
 sessionInfo()
