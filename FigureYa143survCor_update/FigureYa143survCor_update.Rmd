@@ -40,15 +40,47 @@ Figure 1. Comparison of TME stratification based on CD8A and CD274 gene expressi
 
 **Statistics**. CD8A and PD-L1 gene expression were chosen for investigation from the 20 correlated genes (Bedognetti et al.; ref. 12). We used **log-rank statistics** to identify the **optimal expression cut-off** for each gene with regard to the associated hazard of death or relapse events in a survfit model (63), using the cutp function of the **R package survMisc** (version 0.5.5; https://CRAN.R-project.org/package=survMisc). The cut-off with the **highest log-rank test score was selected for best separating patients into high- and low-expression groups with different risks**. Upon observing a bimodal distribution of marginal log-rank statistics for CRC, but not melanoma, CD274 expression value at a secondary mode was used to identify a second set of high-risk subjects. 
 
+**图的解读：**
+
+A和C图展示了CD8A（杀伤性T细胞）和CD274（PD-L1）在黑色素瘤和结直肠癌中的表达水平。用一张图同时展示：
+
+- 基因表达相关性（线性回归线和置信区间）：展示 CD274 (PD-L1) 和 CD8A 的表达相关性（Pearson 相关系数 r 和 P 值）。
+- Log-rank 统计：找到基于生存的最佳表达 cut-off
+- 风险分组及样本占比：基于 cut-off （由蓝色线划分）的四象限分组（I, II, III, IV），每个象限标注样本百分比
+- MSI/MSS 状态分布
+
+**Figure interpretation:**
+A and C figures show the expression levels of CD8A(killer T cell) and CD274(PD-L1) in melanoma and CRC.
+
+- Gene expression correlation (linear regression line and confidence interval): show the expression correlation of CD274 (PD-L1) and CD8A (Pearson correlation coefficient r and P value)
+- Log-rank statistics: find the optimal expression cut-off
+- Risk grouping: four quadrants based on cut-off (divided by blue lines); I, II, III, IV), each quadrant labeled with sample percentage
+- MSI/MSS status distribution
+
+**免疫微环境特征与预后分析：**
+通过 CD274 (PD-L1) 和 CD8A 基因表达的联合分析，评估肿瘤免疫微环境的特征，包括：
+
+- **象限 I（左下）**：低 PD-L1、低 CD8+ T 细胞 - 免疫冷肿瘤，通常预后较差
+- **象限 II（右下）**：高 PD-L1、低 CD8+ T 细胞 - 原发性免疫抑制，预后通常较差
+- **象限 III（左上）**：低 PD-L1、高 CD8+ T 细胞 - 免疫活跃型，通常预后较好
+- **象限 IV（右上）**：高 PD-L1、高 CD8+ T 细胞 - 适应性免疫抵抗，可能对免疫治疗敏感
+
+**Immuno-environmental features and prognosis analysis:**
+Through the combined analysis of CD274 (PD-L1) and CD8A gene expression, the features of the tumor immune microenvironment are evaluated, including:
+
+- **Quadrant I (lower left)**: low PD-L1, low CD8+ T cell - immunologically cold tumor, usually poor prognosis
+- **Quadrant II (lower right)**: high PD-L1, low CD8+ T cell - primary immunosuppression, usually poor prognosis
+- **Quadrant III (upper left)**: low PD-L1, high CD8+ T cell - immunologically active, usually good prognosis
+- **Quadrant IV (upper right)**: high PD-L1, high CD8+ T cell - adaptive immune resistance, possibly sensitive to immunotherapy
 ## 应用场景 Application scenarios
 
-用log-rank statistics找最佳分组cut-off。
+基于生存信息，通过log-rank statistics找到最佳分组cut-off。
 
 用复杂相关性图同时展示基因表达相关性、MSI/MSS状态、最佳cut-off、分组等信息。
 
 如果只想计算并展示相关性，画出类似的图，可参考FigureYa92immune_gene。
 
-Use log-rank statistics to find the best grouping cut-off.
+Use log-rank statistics based on survival information to find the best grouping cut-off.
 
 Use complex correlation graphs to simultaneously display gene expression correlation, MSI/MSS status, best cut-off, grouping and other information.
 
@@ -86,12 +118,12 @@ Download TCGA Colorectal Cancer (COADREAD) (16 datasets) data from UCSC Xena bro
 - phenotype, Curated survival data (n=599) TCGA Hub, survival_COADREAD_survival.txt
 
 ```{r}
-cancer_type <- "SKCM" # Figure 1A
-#cancer_type <- "COADREAD" # Figure 1C
+#cancer_type <- "SKCM" # Figure 1A
+cancer_type <- "COADREAD" # Figure 1C
 
 # 从Xena下载的HiSeqV2表达数据中提取CD274和CD8A的表达值
 # Extract CD274 and CD8A expression values from HiSeqV2 expression data downloaded from Xena
-hiseq_file <- paste0("TCGA.", cancer_type, ".sampleMap_HiSeqV2.gz")
+hiseq_file <- paste0("TCGA.", cancer_type, ".sampleMap_HiSeqV2_PANCAN.gz")
 
 # 读取HiSeqV2表达数据（基因行为行，样本为列）
 # Read HiSeqV2 expression data (genes as rows, samples as columns)
@@ -358,14 +390,11 @@ if (exists("has_msi") && has_msi && sum(msi_results_matched$MSI != "", na.rm = T
 ```{r}
 #-------------------#
 # 计算logrank score #
-#-------------------#
-#-------------------#
 # Calculate logrank score #
 #-------------------#
 
 exprsurv <- cbind.data.frame(surv,expr) # 新建包含表达和生存的数据框 # Create a new data frame containing expression and survival
 exprsurv$sampleID <- rownames(exprsurv) # 生成样名 # Generate sample names
-
 
 # CD274
 cox.CD274 <- coxph(Surv(OS.time, OS) ~ CD274, data=exprsurv) # cox回归 # cox regression
@@ -397,8 +426,6 @@ rightbottom.pct <- paste0("II (",round(nrow(rightbottom)/nrow(expr),2)*100,"%)")
 
 #------------#
 # 计算相关性 #
-#------------#
-#----------------#
 # Calculate correlation #
 #----------------#
 
@@ -408,8 +435,6 @@ p <- ifelse(cor$p.value < 0.001," < 0.001", paste0(" = ",round(cor$p.value))) # 
 
 #------------------------#
 # 计算线性回归以及置信域 #
-#------------------------#
-#------------------------#
 # Calculate linear regression and confidence region #
 #------------------------#
 reg <- lm(CD8A~CD274,data=expr[order(expr$CD274),]) # 注意要按照x轴排序  # Note that the order should be sorted according to the x-axis
@@ -450,8 +475,6 @@ layout(matrix(c(1,1,1,1,2,
 
 #--------------------------------------------#
 # 画布区域1：添加x轴相关的logrank test score #
-#--------------------------------------------#
-#--------------------------------------------#
 # Canvas area 1: Add x-axis related logrank test score #
 #--------------------------------------------#
 
@@ -477,8 +500,6 @@ Arrows(peak.CD274,peak.CD274.score + 5,
 
 #------------------------#
 # 画布区域2：填充空白画布#
-#------------------------#
-#------------------------#
 # Canvas area 2: Fill the blank canvas#
 #------------------------#
 
@@ -487,8 +508,6 @@ plot(0,0,col = "white",xaxt = "n",yaxt = "n",xlab = "",ylab = "")
 
 #----------------------#
 # 画布区域3：相关性主图#
-#----------------------#
-#----------------------#
 # Canvas area 3: Correlation main graph#
 #----------------------#
 
@@ -658,8 +677,6 @@ if (exists("has_msi") && has_msi && length(msi.sam) > 0) {
        
 #--------------------------------------------#
 # 画布区域4：添加y轴相关的logrank test score #
-#--------------------------------------------#
-#--------------------------------------------#
 # Canvas area 4: Add y-axis related logrank test score #
 #--------------------------------------------#
 
