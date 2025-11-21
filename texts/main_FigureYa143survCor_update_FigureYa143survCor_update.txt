@@ -81,19 +81,70 @@ different risks
 marginal log-rank statistics for CRC, but not melanoma, CD274 expression
 value at a secondary mode was used to identify a second set of high-risk
 subjects.
-3
-应用场景 Application
-scenarios
-用log-rank statistics找最佳分组cut-off。
+图的解读：
+A和C图展示了CD8A（杀伤性T细胞）和CD274（PD-L1）在黑色素瘤和结直肠癌中的表达水平。用一张图同时展示：
+基因表达相关性（线性回归线和置信区间）：展示 CD274 (PD-L1) 和 CD8A
+的表达相关性（Pearson 相关系数 r 和 P 值）。
+Log-rank 统计：找到基于生存的最佳表达 cut-off
+风险分组及样本占比：基于 cut-off （由蓝色线划分）的四象限分组（I,
+II, III, IV），每个象限标注样本百分比
+MSI/MSS 状态分布
+Figure interpretation:
+A and C figures show the
+expression levels of CD8A(killer T cell) and CD274(PD-L1) in melanoma
+and CRC.
+Gene expression correlation (linear regression line and confidence
+interval): show the expression correlation of CD274 (PD-L1) and CD8A
+(Pearson correlation coefficient r and P value)
+Log-rank statistics: find the optimal expression cut-off
+Risk grouping: four quadrants based on cut-off (divided by blue
+lines); I, II, III, IV), each quadrant labeled with sample
+percentage
+MSI/MSS status distribution
+免疫微环境特征与预后分析：
+通过 CD274 (PD-L1) 和
+CD8A 基因表达的联合分析，评估肿瘤免疫微环境的特征，包括：
+象限 I（左下）
+：低 PD-L1、低 CD8+ T 细胞 -
+免疫冷肿瘤，通常预后较差
+象限 II（右下）
+：高 PD-L1、低 CD8+ T 细胞 -
+原发性免疫抑制，预后通常较差
+象限 III（左上）
+：低 PD-L1、高 CD8+ T 细胞 -
+免疫活跃型，通常预后较好
+象限 IV（右上）
+：高 PD-L1、高 CD8+ T 细胞 -
+适应性免疫抵抗，可能对免疫治疗敏感
+Immuno-environmental features and prognosis
+analysis:
+Through the combined analysis of CD274 (PD-L1) and
+CD8A gene expression, the features of the tumor immune microenvironment
+are evaluated, including:
+Quadrant I (lower left)
+: low PD-L1, low CD8+ T cell
+- immunologically cold tumor, usually poor prognosis
+Quadrant II (lower right)
+: high PD-L1, low CD8+ T
+cell - primary immunosuppression, usually poor prognosis
+Quadrant III (upper left)
+: low PD-L1, high CD8+ T
+cell - immunologically active, usually good prognosis
+Quadrant IV (upper right)
+: high PD-L1, high CD8+ T
+cell - adaptive immune resistance, possibly sensitive to immunotherapy
+## 应用场景 Application scenarios
+基于生存信息，通过log-rank statistics找到最佳分组cut-off。
 用复杂相关性图同时展示基因表达相关性、MSI/MSS状态、最佳cut-off、分组等信息。
 如果只想计算并展示相关性，画出类似的图，可参考FigureYa92immune_gene。
-Use log-rank statistics to find the best grouping cut-off.
+Use log-rank statistics based on survival information to find the
+best grouping cut-off.
 Use complex correlation graphs to simultaneously display gene
 expression correlation, MSI/MSS status, best cut-off, grouping and other
 information.
 If you only want to calculate and display the correlation and draw a
 similar graph, refer to FigureYa92immune_gene.
-4
+3
 环境设置 Environment
 settings
 source
@@ -121,7 +172,7 @@ stringsAsFactors =
 FALSE
 )
 # Disable conversion of chr to factor
-5
+4
 输入文件 Input
 file
 For Figure 1A of the reference paper, we need to download the data
@@ -148,49 +199,14 @@ phenotype, Phenotypes (n=599) TCGA Hub,
 TCGA.COADREAD.sampleMap_COADREAD_clinicalMatrix
 phenotype, Curated survival data (n=599) TCGA Hub,
 survival_COADREAD_survival.txt
+#cancer_type <- "SKCM" # Figure 1A
 cancer_type
 <-
-"SKCM"
-# Figure 1A
-#cancer_type <- "COADREAD" # Figure 1C
+"COADREAD"
+# Figure 1C
 # 从Xena下载的HiSeqV2表达数据中提取CD274和CD8A的表达值
 # Extract CD274 and CD8A expression values from HiSeqV2 expression data downloaded from Xena
-# 根据cancer_type确定文件名（COADREAD使用不同的文件名格式）
-# Determine filename based on cancer_type (COADREAD uses different filename format)
-if
-(cancer_type
-==
-"COADREAD"
-) {
 hiseq_file
-<-
-paste0
-(
-"TCGA."
-, cancer_type,
-".sampleMap_HiSeqV2.gz"
-)
-}
-else
-{
-# SKCM和其他癌症类型可能使用不同的文件名
-# SKCM and other cancer types may use different filename
-hiseq_file
-<-
-paste0
-(
-"TCGA."
-, cancer_type,
-".sampleMap_HiSeqV2.gz"
-)
-# 如果文件不存在，尝试其他可能的文件名格式
-# If file doesn't exist, try other possible filename formats
-if
-(
-!
-file.exists
-(hiseq_file)) {
-alt_file
 <-
 paste0
 (
@@ -198,16 +214,6 @@ paste0
 , cancer_type,
 ".sampleMap_HiSeqV2_PANCAN.gz"
 )
-if
-(
-file.exists
-(alt_file)) {
-hiseq_file
-<-
-alt_file
-}
-}
-}
 # 读取HiSeqV2表达数据（基因行为行，样本为列）
 # Read HiSeqV2 expression data (genes as rows, samples as columns)
 hiseq_data
@@ -1003,13 +1009,11 @@ has_msi
 <-
 FALSE
 }
-6
+5
 计算logrank
 score和相关性 Calculate logrank score and correlation
 #-------------------#
 # 计算logrank score #
-#-------------------#
-#-------------------#
 # Calculate logrank score #
 #-------------------#
 exprsurv
@@ -1272,8 +1276,6 @@ nrow
 )
 #------------#
 # 计算相关性 #
-#------------#
-#----------------#
 # Calculate correlation #
 #----------------#
 cor
@@ -1318,8 +1320,6 @@ p.value)))
 # p值显示为文本
 #------------------------#
 # 计算线性回归以及置信域 #
-#------------------------#
-#------------------------#
 # Calculate linear regression and confidence region #
 #------------------------#
 reg
@@ -1351,7 +1351,7 @@ interval =
 'confidence'
 ))
 # 计算置信域 # Calculate confidence region
-7
+6
 开始画图 Start
 drawing
 # 设置颜色
@@ -1471,8 +1471,6 @@ nrow =
 ))
 #--------------------------------------------#
 # 画布区域1：添加x轴相关的logrank test score #
-#--------------------------------------------#
-#--------------------------------------------#
 # Canvas area 1: Add x-axis related logrank test score #
 #--------------------------------------------#
 par
@@ -1604,8 +1602,6 @@ arr.type =
 )
 #------------------------#
 # 画布区域2：填充空白画布#
-#------------------------#
-#------------------------#
 # Canvas area 2: Fill the blank canvas#
 #------------------------#
 par
@@ -1661,8 +1657,6 @@ ylab =
 )
 #----------------------#
 # 画布区域3：相关性主图#
-#----------------------#
-#----------------------#
 # Canvas area 3: Correlation main graph#
 #----------------------#
 par
@@ -2487,8 +2481,6 @@ T)
 }
 #--------------------------------------------#
 # 画布区域4：添加y轴相关的logrank test score #
-#--------------------------------------------#
-#--------------------------------------------#
 # Canvas area 4: Add y-axis related logrank test score #
 #--------------------------------------------#
 par
@@ -2617,7 +2609,7 @@ invisible
 dev.off
 ())
 Complex correlation with logrank score
-8
+7
 Session Info
 sessionInfo
 ()
