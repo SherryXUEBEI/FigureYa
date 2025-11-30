@@ -51,7 +51,7 @@ First cluster, and then use PCA to visualize the clustering results. Clustering 
 ```{r}
 source("install_dependencies.R")
 source("geom_convexhull.R") # from ggConvexHull package
-library(tidyverse) # data manipulation
+library(tidyverse) # Data manipulation
 library(factoextra) # PCA visualization
 Sys.setenv(LANGUAGE = "en") #显示英文报错信息 # error messages are displayed in English
 options(stringsAsFactors = FALSE) #禁止chr转成factor # chr is not allowed to be converted to factor
