@@ -108,7 +108,7 @@ table(sinfo$Cohort) # 2个队列
 # 计算距离矩阵（非相似性矩阵）
 # Calculating Distance Matrix (Non-Similarity Matrix)
 brca.dist <- vegdist(t(expr), # 注意行为观测（样本），列为特征（基因）# Attention rows are Observations (Sample),columns as Trait (Gene)
-                     method = "euclidean") # 原文使用Bray-Curtis dissimilarity matrix针对非负矩阵(method = "bray")，这里表达谱有负值，所以采用普通的欧氏距离 # The original text uses the Bray-Curtis dissimilarity matrix for the non-negative matrix (method = "bray"), where the expression spectrum has a negative value, so the ordinary Euclidean distance is used
+                     method = "euclidean") # method = "bray" for Bray-Curtis dissimilarity matrix
 
 # 计算principal coordinates
 # Calculate principal coordinates
