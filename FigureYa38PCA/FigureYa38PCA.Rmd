@@ -427,8 +427,8 @@ ggsave('PCA_DIY2.pdf',width = 5.5,height = 4)
 
 ## 更新要点 Key points of update
 
-- 可以用箭头标出对PCA贡献最大的N个基因，而不是全部基因
-- You can use arrows to mark the top N genes that contribute to PCA, rather than all genes
+- 用箭头标出对 PCA 贡献（载荷² × 对应特征值）最大的 N 个（这里以 3 为例）基因。
+- Mark the top N (3 in this example) genes with arrows that contribute the most to PCA (loading² × corresponding eigenvalue).
 
 ## Session Info
 
