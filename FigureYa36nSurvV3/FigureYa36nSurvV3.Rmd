@@ -41,15 +41,9 @@ Figure 4. Overall survival curves using combinations of DE and HE expression lev
 logrank p-values reported; Bonferroni multiple testing adjustment for pairwise comparisons p = 0.05/5 = 0.01. DE: Decorin staining in malignant
 epithelial tissue. HE: HSP90B1 staining in malignant epithelial tissue. HR: Hazard ratio
 
-小伙伴用到这个FigureYa发表的文章，供参考：
-
-Additionally, a colleague used this FigureYa to publish an article for reference:
-
-![](example2.png){width=300px}")
+![](example2.png){width=300px}
 
 From <https://molecular-cancer.biomedcentral.com/articles/10.1186/s12943-020-01170-0>
-
-
 
 ## 应用场景 Application Scenario
 
