@@ -15,7 +15,7 @@ also installing the dependencies ‘annotate’, ‘locfit’, ‘genefilter’,
 trying URL 'https://bioconductor.org//packages/3.22/bioc/src/contrib/annotate_1.88.0.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/locfit_1.5-9.12.tar.gz'
 trying URL 'https://bioconductor.org//packages/3.22/bioc/src/contrib/genefilter_1.92.0.tar.gz'
-trying URL 'https://bioconductor.org//packages/3.22/bioc/src/contrib/edgeR_4.8.0.tar.gz'
+trying URL 'https://bioconductor.org//packages/3.22/bioc/src/contrib/edgeR_4.8.1.tar.gz'
 trying URL 'https://bioconductor.org//packages/3.22/bioc/src/contrib/sva_3.58.0.tar.gz'
 * installing *source* package ‘annotate’ ...
 ** this is package ‘annotate’ version ‘1.88.0’
@@ -142,7 +142,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-genefilter/00new/genefilter
 ** testing if installed package keeps a record of temporary installation path
 * DONE (genefilter)
 * installing *source* package ‘edgeR’ ...
-** this is package ‘edgeR’ version ‘4.8.0’
+** this is package ‘edgeR’ version ‘4.8.1’
 ** package ‘edgeR’ successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
@@ -201,7 +201,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-sva/00new/sva/libs
 * DONE (sva)
 
 The downloaded source packages are in
-	‘/tmp/RtmpLIYdWm/downloaded_packages’
+	‘/tmp/RtmpUEJbMn/downloaded_packages’
 Successfully installed: sva 
 Package already installed: SummarizedExperiment 
 Package already installed: edgeR 

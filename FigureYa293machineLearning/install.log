@@ -69,7 +69,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-BART/00new/BART/libs
 * DONE (BART)
 
 The downloaded source packages are in
-	‘/tmp/RtmpYeYB1n/downloaded_packages’
+	‘/tmp/RtmpNPbdCG/downloaded_packages’
 Successfully installed: BART 
 Package already installed: RColorBrewer 
 Installing CRAN package: compareC 
@@ -103,7 +103,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-compareC/00new/compareC/lib
 * DONE (compareC)
 
 The downloaded source packages are in
-	‘/tmp/RtmpYeYB1n/downloaded_packages’
+	‘/tmp/RtmpNPbdCG/downloaded_packages’
 Successfully installed: compareC 
 Package already installed: dplyr 
 Installing CRAN package: gbm 
@@ -115,7 +115,7 @@ trying URL 'https://cloud.r-project.org/src/contrib/yardstick_1.3.2.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/pdp_0.8.2.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/RUnit_0.4.33.1.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/tinytest_1.4.1.tar.gz'
-trying URL 'https://cloud.r-project.org/src/contrib/vip_0.4.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/vip_0.4.5.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/gbm_2.2.2.tar.gz'
 * installing *source* package ‘yardstick’ ...
 ** this is package ‘yardstick’ version ‘1.3.2’
@@ -248,7 +248,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-gbm/00new/gbm/libs
 ** testing if installed package keeps a record of temporary installation path
 * DONE (gbm)
 * installing *source* package ‘vip’ ...
-** this is package ‘vip’ version ‘0.4.2’
+** this is package ‘vip’ version ‘0.4.5’
 ** package ‘vip’ successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -266,7 +266,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-gbm/00new/gbm/libs
 * DONE (vip)
 
 The downloaded source packages are in
-	‘/tmp/RtmpYeYB1n/downloaded_packages’
+	‘/tmp/RtmpNPbdCG/downloaded_packages’
 Successfully installed: gbm 
 Installing CRAN package: ggbreak 
 Installing package into ‘/home/runner/work/_temp/Library’
@@ -322,7 +322,7 @@ trying URL 'https://cloud.r-project.org/src/contrib/ggbreak_0.1.6.tar.gz'
 * DONE (ggbreak)
 
 The downloaded source packages are in
-	‘/tmp/RtmpYeYB1n/downloaded_packages’
+	‘/tmp/RtmpNPbdCG/downloaded_packages’
 Successfully installed: ggbreak 
 Package already installed: ggplot2 
 Package already installed: ggsci 
@@ -362,7 +362,7 @@ trying URL 'https://cloud.r-project.org/src/contrib/miscTools_0.6-28.tar.gz'
 * DONE (miscTools)
 
 The downloaded source packages are in
-	‘/tmp/RtmpYeYB1n/downloaded_packages’
+	‘/tmp/RtmpNPbdCG/downloaded_packages’
 Successfully installed: miscTools 
 Installing CRAN package: plsRcox 
 Installing package into ‘/home/runner/work/_temp/Library’
@@ -622,7 +622,7 @@ install.packages(c('mixOmics', 'survcomp'))
 * removing ‘/home/runner/work/_temp/Library/plsRcox’
 
 The downloaded source packages are in
-	‘/tmp/RtmpYeYB1n/downloaded_packages’
+	‘/tmp/RtmpNPbdCG/downloaded_packages’
 Successfully installed: plsRcox 
 Package already installed: randomForestSRC 
 Package already installed: rlang 
@@ -650,7 +650,7 @@ downloaded 162 KB
 * DONE (superpc)
 
 The downloaded source packages are in
-	‘/tmp/RtmpYeYB1n/downloaded_packages’
+	‘/tmp/RtmpNPbdCG/downloaded_packages’
 Successfully installed: superpc 
 Installing CRAN package: survivalsvm 
 Installing package into ‘/home/runner/work/_temp/Library’
@@ -675,7 +675,7 @@ downloaded 39 KB
 * DONE (survivalsvm)
 
 The downloaded source packages are in
-	‘/tmp/RtmpYeYB1n/downloaded_packages’
+	‘/tmp/RtmpNPbdCG/downloaded_packages’
 Successfully installed: survivalsvm 
 Package already installed: tibble 
 Package already installed: tidyr 
@@ -760,7 +760,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-gsignal/00new/gsignal/libs
 * DONE (mixOmics)
 
 The downloaded source packages are in
-	‘/tmp/RtmpYeYB1n/downloaded_packages’
+	‘/tmp/RtmpNPbdCG/downloaded_packages’
 Successfully installed: mixOmics 
 Installing Bioconductor package: survcomp 
 'getOption("repos")' replaces Bioconductor standard repositories, see
@@ -839,7 +839,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-survcomp/00new/survcomp/lib
 * DONE (survcomp)
 
 The downloaded source packages are in
-	‘/tmp/RtmpYeYB1n/downloaded_packages’
+	‘/tmp/RtmpNPbdCG/downloaded_packages’
 Successfully installed: survcomp 
 
 Installing CoxBoost...

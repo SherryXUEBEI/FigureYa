@@ -49,7 +49,7 @@ trying URL 'https://cloud.r-project.org/src/contrib/grImport2_0.3-3.tar.gz'
 * DONE (grImport2)
 
 The downloaded source packages are in
-	‘/tmp/RtmpMfSBRZ/downloaded_packages’
+	‘/tmp/RtmpyBO8iT/downloaded_packages’
 Successfully installed: grImport2 
 Package already installed: gridSVG 
 Package already installed: dplyr 
@@ -82,7 +82,7 @@ downloaded 4.8 MB
 * DONE (RIdeogram)
 
 The downloaded source packages are in
-	‘/tmp/RtmpMfSBRZ/downloaded_packages’
+	‘/tmp/RtmpyBO8iT/downloaded_packages’
 Successfully installed: RIdeogram 
 Package already installed: knitr 
 

@@ -1160,7 +1160,7 @@ Creating a generic function for ‘sample’ from package ‘base’ in package 
 * DONE (AnnotationDbi)
 
 The downloaded source packages are in
-	‘/tmp/Rtmp9S1p5R/downloaded_packages’
+	‘/tmp/RtmpPrJPXp/downloaded_packages’
 Successfully installed: AnnotationDbi 
 Installing Bioconductor package: httr2 
 'getOption("repos")' replaces Bioconductor standard repositories, see
@@ -1169,13 +1169,13 @@ Replacement repositories:
     CRAN: https://cloud.r-project.org/
 Bioconductor version 3.22 (BiocManager 1.30.27), R 4.5.2 (2025-10-31)
 Installing package(s) 'httr2'
-trying URL 'https://cloud.r-project.org/src/contrib/httr2_1.2.1.tar.gz'
-Content type 'application/x-gzip' length 271878 bytes (265 KB)
+trying URL 'https://cloud.r-project.org/src/contrib/httr2_1.2.2.tar.gz'
+Content type 'application/x-gzip' length 277334 bytes (270 KB)
 ==================================================
-downloaded 265 KB
+downloaded 270 KB
 
 * installing *source* package ‘httr2’ ...
-** this is package ‘httr2’ version ‘1.2.1’
+** this is package ‘httr2’ version ‘1.2.2’
 ** package ‘httr2’ successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -1192,7 +1192,7 @@ downloaded 265 KB
 * DONE (httr2)
 
 The downloaded source packages are in
-	‘/tmp/Rtmp9S1p5R/downloaded_packages’
+	‘/tmp/RtmpPrJPXp/downloaded_packages’
 Successfully installed: httr2 
 Installing Bioconductor package: BiocFileCache 
 'getOption("repos")' replaces Bioconductor standard repositories, see
@@ -1262,7 +1262,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-filelock/00new/filelock/lib
 * DONE (BiocFileCache)
 
 The downloaded source packages are in
-	‘/tmp/Rtmp9S1p5R/downloaded_packages’
+	‘/tmp/RtmpPrJPXp/downloaded_packages’
 Successfully installed: BiocFileCache 
 Package already installed: curl 
 Installing CRAN package: rvest 
@@ -1277,7 +1277,7 @@ trying URL 'https://cloud.r-project.org/src/contrib/rex_1.2.1.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/clipr_0.8.0.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/vroom_1.6.7.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/tzdb_0.5.0.tar.gz'
-trying URL 'https://cloud.r-project.org/src/contrib/selectr_0.5-0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/selectr_0.5-1.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/chromote_0.5.1.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/covr_3.6.5.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/readr_2.1.6.tar.gz'
@@ -1385,7 +1385,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-tzdb/00new/tzdb/libs
 ** testing if installed package keeps a record of temporary installation path
 * DONE (tzdb)
 * installing *source* package ‘selectr’ ...
-** this is package ‘selectr’ version ‘0.5-0’
+** this is package ‘selectr’ version ‘0.5-1’
 ** package ‘selectr’ successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -1725,7 +1725,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-readr/00new/readr/libs
 * DONE (readr)
 
 The downloaded source packages are in
-	‘/tmp/Rtmp9S1p5R/downloaded_packages’
+	‘/tmp/RtmpPrJPXp/downloaded_packages’
 Successfully installed: rvest 
 Package already installed: httr 
 
@@ -1798,7 +1798,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-openxlsx/00new/openxlsx/lib
 * DONE (formula.tools)
 
 The downloaded source packages are in
-	‘/tmp/Rtmp9S1p5R/downloaded_packages’
+	‘/tmp/RtmpPrJPXp/downloaded_packages’
 Successfully installed: openxlsx 
 
 Installing Bioconductor packages...
@@ -1979,7 +1979,7 @@ in method for ‘readSolrDoc’ with signature ‘"AsIs"’: no definition for c
 * DONE (TCGAbiolinks)
 
 The downloaded source packages are in
-	‘/tmp/Rtmp9S1p5R/downloaded_packages’
+	‘/tmp/RtmpPrJPXp/downloaded_packages’
 Successfully installed: TCGAbiolinks 
 Installing Bioconductor package: limma 
 'getOption("repos")' replaces Bioconductor standard repositories, see
@@ -2041,7 +2041,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-limma/00new/limma/libs
 * DONE (limma)
 
 The downloaded source packages are in
-	‘/tmp/Rtmp9S1p5R/downloaded_packages’
+	‘/tmp/RtmpPrJPXp/downloaded_packages’
 Successfully installed: limma 
 
 ===========================================

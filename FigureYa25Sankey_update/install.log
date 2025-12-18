@@ -16,7 +16,7 @@ trying URL 'https://cloud.r-project.org/src/contrib/gridtext_0.1.5.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/alluvial_0.1-2.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/babynames_1.0.1.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/sessioninfo_1.2.3.tar.gz'
-trying URL 'https://cloud.r-project.org/src/contrib/ggfittext_0.10.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/ggfittext_0.10.3.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/vdiffr_1.0.8.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/ggalluvial_0.12.5.tar.gz'
 * installing *source* package ‘litedown’ ...
@@ -198,7 +198,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-gridtext/00new/gridtext/lib
 ** testing if installed package keeps a record of temporary installation path
 * DONE (gridtext)
 * installing *source* package ‘ggfittext’ ...
-** this is package ‘ggfittext’ version ‘0.10.2’
+** this is package ‘ggfittext’ version ‘0.10.3’
 ** package ‘ggfittext’ successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -217,7 +217,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-gridtext/00new/gridtext/lib
 * DONE (ggfittext)
 
 The downloaded source packages are in
-	‘/tmp/RtmpUDpQaB/downloaded_packages’
+	‘/tmp/RtmpTfJ9cR/downloaded_packages’
 Successfully installed: ggalluvial 
 
 ===========================================

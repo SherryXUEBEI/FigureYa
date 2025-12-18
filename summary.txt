@@ -92,12 +92,64 @@ RMD Render Summary
 [SKIPPED] - ./FigureYa283vennyPvalue/FigureYa283vennyPvalue.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa79CNV/FigureYa79CNV.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa210survivalScape/FigureYa210survivalScape.Rmd (Not listed in auto_Knit_online.txt)
+<<<<<<< Updated upstream
 [SKIPPED] - ./FigureYa272scBulkCCCI/FigureYa272scBulkCCCI.Rmd (Not listed in auto_Knit_online.txt)
+=======
+[FAILED] - ./FigureYa272scBulkCCCI/FigureYa272scBulkCCCI.Rmd
+--- Error Log for ./FigureYa272scBulkCCCI/FigureYa272scBulkCCCI.Rmd ---
+** R
+** data
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (ScBulkCCCI)
+Error in `file()`:
+! cannot open the connection
+Backtrace:
+    ▆
+ 1. └─utils::read.table(...)
+ 2.   └─base::file(file, "rt")
+
+Quitting from FigureYa272scBulkCCCI.Rmd:131-139 [unnamed-chunk-2]
+Execution halted
+-----------------------------------
+>>>>>>> Stashed changes
 [SKIPPED] - ./FigureYa268panCNVexpr/FigureYa268panCNVexpr.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa183condSurv/FigureYa183condSurv.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa196Plus_PanPie/FigureYa196Plus_PanPie.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa44profile/FigureYa44profile.Rmd (Not listed in auto_Knit_online.txt)
+<<<<<<< Updated upstream
 [SKIPPED] - ./FigureYa92immune_gene_update/FigureYa92immune_gene_update.Rmd (Not listed in auto_Knit_online.txt)
+=======
+[FAILED] - ./FigureYa92immune_gene_update/FigureYa92immune_gene_update.Rmd
+--- Error Log for ./FigureYa92immune_gene_update/FigureYa92immune_gene_update.Rmd ---
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (metaBMA)
+
+The downloaded source packages are in
+	'/tmp/RtmpJqagxB/downloaded_packages'
+Error in `library()`:
+! there is no package called 'ggstatsplot'
+Backtrace:
+    ▆
+ 1. └─base::library(ggstatsplot)
+
+Quitting from FigureYa92immune_gene_update.Rmd:72-90 [unnamed-chunk-1]
+Execution halted
+-----------------------------------
+>>>>>>> Stashed changes
 [SKIPPED] - ./FigureYa87fish/FigureYa87fish.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa9heatmap/FigureYa9heatmap.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa314SingleRScore/FigureYa314SingleRScore.Rmd (Not listed in auto_Knit_online.txt)
@@ -172,7 +224,11 @@ RMD Render Summary
 [SKIPPED] - ./FigureYa302NTPPAM/FigureYa302NTPPAM.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa318GenesetDEDotplot/FigureYa318GenesetDEDotplot.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa126CorrelationHeatmap/FigureYa126CorrelationHeatmap.Rmd (Not listed in auto_Knit_online.txt)
+<<<<<<< Updated upstream
 [SKIPPED] - ./FigureYa174squareCross/FigureYa174squareCross.Rmd (Not listed in auto_Knit_online.txt)
+=======
+[SUCCESS] - ./FigureYa174squareCross/FigureYa174squareCross.Rmd
+>>>>>>> Stashed changes
 [SKIPPED] - ./FigureYa91cluster_heatmap/FigureYa91cluster_heatmap.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa271panMethExpr/FigureYa271panMethExpr.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa214KEGG_hierarchyV2/FigureYa214KEGG_hierarchyV2.Rmd (Not listed in auto_Knit_online.txt)
@@ -264,8 +320,13 @@ RMD Render Summary
 [SKIPPED] - ./FigureYa190batchLogistic/FigureYa190batchLogistic.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa280TMEofSTS/FigureYa280TMEofSTS.Rmd (Not listed in auto_Knit_online.txt)
 [SUCCESS] - ./FigureYa38PCA/FigureYa38PCA.Rmd
+<<<<<<< Updated upstream
 [SKIPPED] - ./FigureYa308IHS/FigureYa308IHS.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa199crosslink/FigureYa199crosslink.Rmd (Not listed in auto_Knit_online.txt)
+=======
+[SUCCESS] - ./FigureYa308IHS/FigureYa308IHS.Rmd
+[SUCCESS] - ./FigureYa199crosslink/FigureYa199crosslink.Rmd
+>>>>>>> Stashed changes
 [SKIPPED] - ./FigureYa124AssociationHeatmap/FigureYa124AssociationHeatmap.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa37correlationV2_update/FigureYa37correlationV2_update.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa3genomeView/FigureYa3genomeView.Rmd (Not listed in auto_Knit_online.txt)
@@ -279,8 +340,35 @@ RMD Render Summary
 [SKIPPED] - ./FigureYa294HCCdrug/FigureYa294HCCdrug.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa261circGene/FigureYa261circGene.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa239ST_PDAC/FigureYa239ST_PDAC.Rmd (Not listed in auto_Knit_online.txt)
+<<<<<<< Updated upstream
 [SKIPPED] - ./FigureYa244PCAPlot/FigureYa244PCAPlot.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa293machineLearning/FigureYa293machineLearning.Rmd (Not listed in auto_Knit_online.txt)
+=======
+[SUCCESS] - ./FigureYa244PCAPlot/FigureYa244PCAPlot.Rmd
+[FAILED] - ./FigureYa293machineLearning/FigureYa293machineLearning.Rmd
+--- Error Log for ./FigureYa293machineLearning/FigureYa293machineLearning.Rmd ---
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (plsRcox)
+
+The downloaded source packages are in
+	'/tmp/RtmpHghr3P/downloaded_packages'
+Error in `data.frame()`:
+! arguments imply differing number of rows: 269, 268
+Backtrace:
+    ▆
+ 1. └─base::lapply(...)
+ 2.   └─global FUN(X[[i]], ...)
+ 3.     └─base::cbind(x[, 1:2], RS = predict(fit, newdata = x)$predicted)
+ 4.       └─base::cbind(deparse.level, ...)
+ 5.         └─base::data.frame(..., check.names = FALSE)
+
+Quitting from FigureYa293machineLearning.Rmd:185-505 [unnamed-chunk-3]
+Execution halted
+-----------------------------------
+>>>>>>> Stashed changes
 [SKIPPED] - ./FigureYa193RiskTable/FigureYa193RiskTable.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa305PMAPscore/FigureYa305PMAPscore.Rmd (Not listed in auto_Knit_online.txt)
 [SKIPPED] - ./FigureYa20mortality/FigureYa20mortalityV2.Rmd (Not listed in auto_Knit_online.txt)

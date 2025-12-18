@@ -11,8 +11,13 @@ Package already installed: dplyr
 Package already installed: scales 
 
 ===========================================
-Using bundled GitHub PAT. Please add your own PAT using `gitcreds::gitcreds_set()`
-Error: Failed to install 'unknown package' from GitHub:
-  HTTP error 401.
-  Bad credentials
-Execution halted
+验证安装结果:
+Verifying installation results:
+✓ ggplot2 已成功安装
+✓ ggplot2 installed successfully
+✓ aplot 已成功安装
+✓ aplot installed successfully
+✓ dplyr 已成功安装
+✓ dplyr installed successfully
+✓ scales 已成功安装
+✓ scales installed successfully

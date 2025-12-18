@@ -10,7 +10,7 @@ also installing the dependencies ‘estimability’, ‘ellipse’, ‘emmeans�
 
 trying URL 'https://cloud.r-project.org/src/contrib/estimability_1.5.1.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/ellipse_0.5.0.tar.gz'
-trying URL 'https://cloud.r-project.org/src/contrib/emmeans_2.0.0.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/emmeans_2.0.1.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/flashClust_1.01-2.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/leaps_3.2.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/dendextend_1.19.1.tar.gz'
@@ -108,7 +108,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-leaps/00new/leaps/libs
 ** testing if installed package keeps a record of temporary installation path
 * DONE (dendextend)
 * installing *source* package ‘emmeans’ ...
-** this is package ‘emmeans’ version ‘2.0.0’
+** this is package ‘emmeans’ version ‘2.0.1’
 ** package ‘emmeans’ successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -165,7 +165,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-FactoMineR/00new/FactoMineR
 * DONE (factoextra)
 
 The downloaded source packages are in
-	‘/tmp/RtmpfVSxUF/downloaded_packages’
+	‘/tmp/Rtmpe5EjPQ/downloaded_packages’
 Successfully installed: factoextra 
 
 ===========================================

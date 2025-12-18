@@ -1671,7 +1671,7 @@ border-radius: 0px;
 
 <p><strong>Author(s)</strong>: Xiaofan Lu<br />
 <strong>Reviewer(s)</strong>: Ying Ge, Junyi Shen<br />
-<strong>Date</strong>: 2025-12-03</p>
+<strong>Date</strong>: 2025-12-18</p>
 <div id="academic-citation" class="section level2" number="1">
 <h2><span class="header-section-number">1</span> Academic Citation</h2>
 <p>If you use this code in your work or research, we kindly request that
@@ -1848,7 +1848,7 @@ Setup</h2>
 ## ========================================</code></pre>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">library</span>(circlize) <span class="co"># 用来配色 # Used for color mapping</span></span></code></pre></div>
 <pre><code>## ========================================
-## circlize version 0.4.16
+## circlize version 0.4.17
 ## CRAN page: https://cran.r-project.org/package=circlize
 ## Github page: https://github.com/jokergoo/circlize
 ## Documentation: https://jokergoo.github.io/circlize_book/book/
@@ -2043,10 +2043,10 @@ and 2 MCPcounter signatures</p>
 <span id="cb23-23"><a href="#cb23-23" tabindex="-1"></a><span class="co"># 使用新的GSVA API</span></span>
 <span id="cb23-24"><a href="#cb23-24" tabindex="-1"></a>gsva_param <span class="ot">&lt;-</span> <span class="fu">gsvaParam</span>(<span class="fu">as.matrix</span>(<span class="fu">log2</span>(tpm <span class="sc">+</span> <span class="dv">1</span>)), immune.sig.ccr)</span>
 <span id="cb23-25"><a href="#cb23-25" tabindex="-1"></a>tcga.immune.gsva <span class="ot">&lt;-</span> <span class="fu">gsva</span>(gsva_param, <span class="at">verbose =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## i GSVA version 2.4.1</code></pre>
-<pre><code>## i Searching for genes/features with constant values</code></pre>
-<pre><code>## ! 10 genes/features with constant values throughout the samples</code></pre>
-<pre><code>## ! Genes/features with constant values are discarded</code></pre>
+<pre><code>## i GSVA version 2.4.3</code></pre>
+<pre><code>## i Searching for rows with constant values</code></pre>
+<pre><code>## ! 10 rows with constant values throughout the columns</code></pre>
+<pre><code>## ! Rows with constant values are discarded</code></pre>
 <pre><code>## i Calculating GSVA ranks</code></pre>
 <pre><code>## i kcdf=&#39;auto&#39; (default)</code></pre>
 <pre><code>## i GSVA dense (classical) algorithm</code></pre>
@@ -2269,8 +2269,8 @@ efficiency</p></li>
 ## 
 ## other attached packages:
 ## [1] tidyestimate_1.1.1    data.table_1.17.8     gplots_3.3.0         
-## [4] viridis_0.6.5         viridisLite_0.4.2     circlize_0.4.16      
-## [7] ComplexHeatmap_2.26.0 GSVA_2.4.1           
+## [4] viridis_0.6.5         viridisLite_0.4.2     circlize_0.4.17      
+## [7] ComplexHeatmap_2.26.0 GSVA_2.4.3           
 ## 
 ## loaded via a namespace (and not attached):
 ##   [1] bitops_1.0-9                DBI_1.2.3                  
@@ -2281,51 +2281,52 @@ efficiency</p></li>
 ##  [11] RSQLite_2.4.5               png_0.1-8                  
 ##  [13] vctrs_0.6.5                 pkgconfig_2.0.3            
 ##  [15] SpatialExperiment_1.20.0    shape_1.4.6.1              
-##  [17] crayon_1.5.3                fastmap_1.2.0              
-##  [19] magick_2.9.0                XVector_0.50.0             
-##  [21] caTools_1.18.3              rmarkdown_2.30             
-##  [23] graph_1.88.0                bit_4.6.0                  
-##  [25] xfun_0.54                   cachem_1.1.0               
-##  [27] beachmat_2.26.0             jsonlite_2.0.0             
-##  [29] blob_1.2.4                  rhdf5filters_1.22.0        
-##  [31] DelayedArray_0.36.0         Rhdf5lib_1.32.0            
-##  [33] BiocParallel_1.44.0         irlba_2.3.5.1              
-##  [35] parallel_4.5.2              cluster_2.1.8.1            
-##  [37] R6_2.6.1                    bslib_0.9.0                
-##  [39] RColorBrewer_1.1-3          GenomicRanges_1.62.0       
-##  [41] jquerylib_0.1.4             Rcpp_1.1.0                 
-##  [43] Seqinfo_1.0.0               SummarizedExperiment_1.40.0
-##  [45] iterators_1.0.14            knitr_1.50                 
-##  [47] R.utils_2.13.0              IRanges_2.44.0             
-##  [49] tidyselect_1.2.1            Matrix_1.7-4               
-##  [51] abind_1.4-8                 yaml_2.3.11                
-##  [53] doParallel_1.0.17           codetools_0.2-20           
-##  [55] lattice_0.22-7              tibble_3.3.0               
-##  [57] withr_3.0.2                 Biobase_2.70.0             
-##  [59] KEGGREST_1.50.0             S7_0.2.1                   
-##  [61] evaluate_1.0.5              Biostrings_2.78.0          
-##  [63] pillar_1.11.1               MatrixGenerics_1.22.0      
-##  [65] KernSmooth_2.23-26          foreach_1.5.2              
-##  [67] stats4_4.5.2                generics_0.1.4             
-##  [69] S4Vectors_0.48.0            ggplot2_4.0.1              
-##  [71] sparseMatrixStats_1.22.0    scales_1.4.0               
-##  [73] gtools_3.9.5                xtable_1.8-4               
-##  [75] glue_1.8.0                  tools_4.5.2                
-##  [77] ScaledMatrix_1.18.0         annotate_1.88.0            
-##  [79] XML_3.99-0.20               Cairo_1.7-0                
-##  [81] rhdf5_2.54.0                AnnotationDbi_1.72.0       
-##  [83] colorspace_2.1-2            SingleCellExperiment_1.32.0
-##  [85] BiocSingular_1.26.1         HDF5Array_1.38.0           
-##  [87] cli_3.6.5                   rsvd_1.0.5                 
-##  [89] S4Arrays_1.10.0             dplyr_1.1.4                
-##  [91] gtable_0.3.6                R.methodsS3_1.8.2          
-##  [93] sass_0.4.10                 digest_0.6.39              
-##  [95] BiocGenerics_0.56.0         SparseArray_1.10.3         
-##  [97] rjson_0.2.23                farver_2.1.2               
-##  [99] R.oo_1.27.1                 memoise_2.0.1              
-## [101] htmltools_0.5.8.1           lifecycle_1.0.4            
-## [103] h5mread_1.2.1               httr_1.4.7                 
-## [105] GlobalOptions_0.1.3         bit64_4.6.0-1</code></pre>
+##  [17] crayon_1.5.3                memuse_4.2-3               
+##  [19] fastmap_1.2.0               magick_2.9.0               
+##  [21] XVector_0.50.0              caTools_1.18.3             
+##  [23] rmarkdown_2.30              graph_1.88.1               
+##  [25] bit_4.6.0                   xfun_0.55                  
+##  [27] cachem_1.1.0                beachmat_2.26.0            
+##  [29] jsonlite_2.0.0              blob_1.2.4                 
+##  [31] rhdf5filters_1.22.0         DelayedArray_0.36.0        
+##  [33] Rhdf5lib_1.32.0             BiocParallel_1.44.0        
+##  [35] irlba_2.3.5.1               parallel_4.5.2             
+##  [37] cluster_2.1.8.1             R6_2.6.1                   
+##  [39] bslib_0.9.0                 RColorBrewer_1.1-3         
+##  [41] GenomicRanges_1.62.1        jquerylib_0.1.4            
+##  [43] Rcpp_1.1.0                  Seqinfo_1.0.0              
+##  [45] SummarizedExperiment_1.40.0 iterators_1.0.14           
+##  [47] knitr_1.50                  R.utils_2.13.0             
+##  [49] IRanges_2.44.0              tidyselect_1.2.1           
+##  [51] Matrix_1.7-4                abind_1.4-8                
+##  [53] yaml_2.3.12                 doParallel_1.0.17          
+##  [55] codetools_0.2-20            tibble_3.3.0               
+##  [57] lattice_0.22-7              withr_3.0.2                
+##  [59] Biobase_2.70.0              KEGGREST_1.50.0            
+##  [61] S7_0.2.1                    evaluate_1.0.5             
+##  [63] Biostrings_2.78.0           pillar_1.11.1              
+##  [65] MatrixGenerics_1.22.0       KernSmooth_2.23-26         
+##  [67] foreach_1.5.2               stats4_4.5.2               
+##  [69] generics_0.1.4              S4Vectors_0.48.0           
+##  [71] ggplot2_4.0.1               sparseMatrixStats_1.22.0   
+##  [73] scales_1.4.0                gtools_3.9.5               
+##  [75] xtable_1.8-4                glue_1.8.0                 
+##  [77] tools_4.5.2                 ScaledMatrix_1.18.0        
+##  [79] annotate_1.88.0             XML_3.99-0.20              
+##  [81] Cairo_1.7-0                 rhdf5_2.54.1               
+##  [83] AnnotationDbi_1.72.0        colorspace_2.1-2           
+##  [85] SingleCellExperiment_1.32.0 BiocSingular_1.26.1        
+##  [87] HDF5Array_1.38.0            cli_3.6.5                  
+##  [89] rsvd_1.0.5                  S4Arrays_1.10.1            
+##  [91] dplyr_1.1.4                 gtable_0.3.6               
+##  [93] R.methodsS3_1.8.2           sass_0.4.10                
+##  [95] digest_0.6.39               BiocGenerics_0.56.0        
+##  [97] SparseArray_1.10.7          rjson_0.2.23               
+##  [99] farver_2.1.2                R.oo_1.27.1                
+## [101] memoise_2.0.1               htmltools_0.5.9            
+## [103] lifecycle_1.0.4             h5mread_1.2.1              
+## [105] httr_1.4.7                  GlobalOptions_0.1.3        
+## [107] bit64_4.6.0-1</code></pre>
 </div>
 
 

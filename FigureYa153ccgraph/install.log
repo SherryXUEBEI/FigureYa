@@ -44,7 +44,7 @@ trying URL 'https://cloud.r-project.org/src/contrib/GOplot_1.0.2.tar.gz'
 * DONE (GOplot)
 
 The downloaded source packages are in
-	‘/tmp/Rtmp1H3ZhT/downloaded_packages’
+	‘/tmp/RtmpnSrzvj/downloaded_packages’
 Successfully installed: GOplot 
 Package already installed: class 
 Package already installed: data.table 
@@ -72,7 +72,7 @@ trying URL 'https://cloud.r-project.org/src/contrib/googledrive_2.1.2.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/googlesheets4_1.1.2.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/haven_2.5.5.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/reprex_2.1.1.tar.gz'
-trying URL 'https://cloud.r-project.org/src/contrib/feather_0.3.5.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/feather_0.4.0.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/mockr_0.2.2.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/tidyverse_2.0.0.tar.gz'
 * installing *source* package ‘gargle’ ...
@@ -170,28 +170,9 @@ trying URL 'https://cloud.r-project.org/src/contrib/tidyverse_2.0.0.tar.gz'
 ** testing if installed package keeps a record of temporary installation path
 * DONE (reprex)
 * installing *source* package ‘feather’ ...
-** this is package ‘feather’ version ‘0.3.5’
+** this is package ‘feather’ version ‘0.4.0’
 ** package ‘feather’ successfully unpacked and MD5 sums checked
 ** using staged installation
-Platform is little endian. Good.
-** libs
-using C++ compiler: ‘g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0’
-using C++11
-g++ -std=gnu++11 -I"/opt/R/4.5.2/lib/R/include" -DNDEBUG -I. -I'/home/runner/work/_temp/Library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
-g++ -std=gnu++11 -I"/opt/R/4.5.2/lib/R/include" -DNDEBUG -I. -I'/home/runner/work/_temp/Library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c feather-read.cpp -o feather-read.o
-g++ -std=gnu++11 -I"/opt/R/4.5.2/lib/R/include" -DNDEBUG -I. -I'/home/runner/work/_temp/Library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c feather-types.cpp -o feather-types.o
-g++ -std=gnu++11 -I"/opt/R/4.5.2/lib/R/include" -DNDEBUG -I. -I'/home/runner/work/_temp/Library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c feather-write.cpp -o feather-write.o
-g++ -std=gnu++11 -I"/opt/R/4.5.2/lib/R/include" -DNDEBUG -I. -I'/home/runner/work/_temp/Library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c feather/buffer.cc -o feather/buffer.o
-g++ -std=gnu++11 -I"/opt/R/4.5.2/lib/R/include" -DNDEBUG -I. -I'/home/runner/work/_temp/Library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c feather/feather-c.cc -o feather/feather-c.o
-g++ -std=gnu++11 -I"/opt/R/4.5.2/lib/R/include" -DNDEBUG -I. -I'/home/runner/work/_temp/Library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c feather/io.cc -o feather/io.o
-g++ -std=gnu++11 -I"/opt/R/4.5.2/lib/R/include" -DNDEBUG -I. -I'/home/runner/work/_temp/Library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c feather/metadata.cc -o feather/metadata.o
-g++ -std=gnu++11 -I"/opt/R/4.5.2/lib/R/include" -DNDEBUG -I. -I'/home/runner/work/_temp/Library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c feather/reader.cc -o feather/reader.o
-g++ -std=gnu++11 -I"/opt/R/4.5.2/lib/R/include" -DNDEBUG -I. -I'/home/runner/work/_temp/Library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c feather/status.cc -o feather/status.o
-g++ -std=gnu++11 -I"/opt/R/4.5.2/lib/R/include" -DNDEBUG -I. -I'/home/runner/work/_temp/Library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c feather/types.cc -o feather/types.o
-g++ -std=gnu++11 -I"/opt/R/4.5.2/lib/R/include" -DNDEBUG -I. -I'/home/runner/work/_temp/Library/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c feather/writer.cc -o feather/writer.o
-ar rcs libfeather.a feather/buffer.o feather/feather-c.o feather/io.o feather/metadata.o feather/reader.o feather/status.o feather/types.o feather/writer.o
-g++ -std=gnu++11 -shared -L/opt/R/4.5.2/lib/R/lib -L/usr/local/lib -o feather.so RcppExports.o feather-read.o feather-types.o feather-write.o -L. -lfeather -L/opt/R/4.5.2/lib/R/lib -lR
-installing to /home/runner/work/_temp/Library/00LOCK-feather/00new/feather/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -199,7 +180,6 @@ installing to /home/runner/work/_temp/Library/00LOCK-feather/00new/feather/libs
 *** installing help indices
 ** building package indices
 ** testing if installed package can be loaded from temporary location
-** checking absolute paths in shared objects and dynamic libraries
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (feather)
@@ -339,7 +319,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-haven/00new/haven/libs
 * DONE (tidyverse)
 
 The downloaded source packages are in
-	‘/tmp/Rtmp1H3ZhT/downloaded_packages’
+	‘/tmp/RtmpnSrzvj/downloaded_packages’
 Successfully installed: tidyverse 
 Warning messages:
 1: package ‘order’ is not available for this version of R
@@ -361,7 +341,7 @@ Replacement repositories:
     CRAN: https://cloud.r-project.org/
 Bioconductor version 3.22 (BiocManager 1.30.27), R 4.5.2 (2025-10-31)
 Installing package(s) 'clusterProfiler'
-also installing the dependencies ‘fontBitstreamVera’, ‘fontLiberation’, ‘fontquiver’, ‘gridGraphics’, ‘gdtools’, ‘fastmatch’, ‘ggplotify’, ‘tidytree’, ‘treeio’, ‘ggiraph’, ‘fgsea’, ‘aplot’, ‘ggfun’, ‘ggtangle’, ‘scatterpie’, ‘ggtree’, ‘DOSE’, ‘enrichplot’, ‘GO.db’, ‘GOSemSim’, ‘gson’, ‘qvalue’, ‘yulab.utils’
+also installing the dependencies ‘fontBitstreamVera’, ‘fontLiberation’, ‘fontquiver’, ‘gridGraphics’, ‘gdtools’, ‘fastmatch’, ‘ggplotify’, ‘tidytree’, ‘treeio’, ‘ggiraph’, ‘fgsea’, ‘aplot’, ‘ggfun’, ‘ggtangle’, ‘tidydr’, ‘scatterpie’, ‘ggtree’, ‘DOSE’, ‘enrichplot’, ‘GO.db’, ‘GOSemSim’, ‘gson’, ‘qvalue’, ‘yulab.utils’
 
 trying URL 'https://cloud.r-project.org/src/contrib/fontBitstreamVera_0.1.1.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/fontLiberation_0.1.0.tar.gz'
@@ -377,16 +357,17 @@ trying URL 'https://bioconductor.org//packages/3.22/bioc/src/contrib/fgsea_1.36.
 trying URL 'https://cloud.r-project.org/src/contrib/aplot_0.2.9.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/ggfun_0.2.0.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/ggtangle_0.0.9.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/tidydr_0.0.6.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/scatterpie_0.2.6.tar.gz'
 trying URL 'https://bioconductor.org//packages/3.22/bioc/src/contrib/ggtree_4.0.1.tar.gz'
 trying URL 'https://bioconductor.org//packages/3.22/bioc/src/contrib/DOSE_4.4.0.tar.gz'
-trying URL 'https://bioconductor.org//packages/3.22/bioc/src/contrib/enrichplot_1.30.3.tar.gz'
+trying URL 'https://bioconductor.org//packages/3.22/bioc/src/contrib/enrichplot_1.30.4.tar.gz'
 trying URL 'https://bioconductor.org//packages/3.22/data/annotation/src/contrib/GO.db_3.22.0.tar.gz'
 trying URL 'https://bioconductor.org//packages/3.22/bioc/src/contrib/GOSemSim_2.36.0.tar.gz'
 trying URL 'https://cloud.r-project.org/src/contrib/gson_0.1.0.tar.gz'
 trying URL 'https://bioconductor.org//packages/3.22/bioc/src/contrib/qvalue_2.42.0.tar.gz'
-trying URL 'https://cloud.r-project.org/src/contrib/yulab.utils_0.2.2.tar.gz'
-trying URL 'https://bioconductor.org//packages/3.22/bioc/src/contrib/clusterProfiler_4.18.2.tar.gz'
+trying URL 'https://cloud.r-project.org/src/contrib/yulab.utils_0.2.3.tar.gz'
+trying URL 'https://bioconductor.org//packages/3.22/bioc/src/contrib/clusterProfiler_4.18.3.tar.gz'
 * installing *source* package ‘fontBitstreamVera’ ...
 ** this is package ‘fontBitstreamVera’ version ‘0.1.1’
 ** package ‘fontBitstreamVera’ successfully unpacked and MD5 sums checked
@@ -493,7 +474,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-fastmatch/00new/fastmatch/l
 ** testing if installed package keeps a record of temporary installation path
 * DONE (qvalue)
 * installing *source* package ‘yulab.utils’ ...
-** this is package ‘yulab.utils’ version ‘0.2.2’
+** this is package ‘yulab.utils’ version ‘0.2.3’
 ** package ‘yulab.utils’ successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -692,6 +673,21 @@ installing to /home/runner/work/_temp/Library/00LOCK-gdtools/00new/gdtools/libs
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (ggtangle)
+* installing *source* package ‘tidydr’ ...
+** this is package ‘tidydr’ version ‘0.0.6’
+** package ‘tidydr’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (tidydr)
 * installing *source* package ‘scatterpie’ ...
 ** this is package ‘scatterpie’ version ‘0.2.6’
 ** package ‘scatterpie’ successfully unpacked and MD5 sums checked
@@ -776,7 +772,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-ggiraph/00new/ggiraph/libs
 ** testing if installed package keeps a record of temporary installation path
 * DONE (ggtree)
 * installing *source* package ‘enrichplot’ ...
-** this is package ‘enrichplot’ version ‘1.30.3’
+** this is package ‘enrichplot’ version ‘1.30.4’
 ** package ‘enrichplot’ successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -791,7 +787,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-ggiraph/00new/ggiraph/libs
 ** testing if installed package keeps a record of temporary installation path
 * DONE (enrichplot)
 * installing *source* package ‘clusterProfiler’ ...
-** this is package ‘clusterProfiler’ version ‘4.18.2’
+** this is package ‘clusterProfiler’ version ‘4.18.3’
 ** package ‘clusterProfiler’ successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
@@ -808,7 +804,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-ggiraph/00new/ggiraph/libs
 * DONE (clusterProfiler)
 
 The downloaded source packages are in
-	‘/tmp/Rtmp1H3ZhT/downloaded_packages’
+	‘/tmp/RtmpnSrzvj/downloaded_packages’
 Successfully installed: clusterProfiler 
 
 ===========================================
